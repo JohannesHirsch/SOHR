@@ -31,6 +31,10 @@ namespace SOHR.Shared
         /// Mögliches Punkteminimum für diesen Fragensatz
         /// </summary>
         public int PossibleMin { get; set; }
+        /// <summary>
+        /// Kommentar
+        /// </summary>
+        public string Comment { get; set; }
 
         #endregion // PROPERTIES
 
