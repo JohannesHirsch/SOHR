@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOHR.Shared", "SOHR.Shared\SOHR.Shared.csproj", "{8EDC0C60-388E-49D6-BFBD-9B97ED38FFB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOHR.Server", "SOHR.Server\SOHR.Server.csproj", "{339C8397-E3F1-4684-A0D2-BB50357FFA12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOHR.Client", "SOHR.Client\SOHR.Client.csproj", "{05EA875B-03D7-4458-A647-415473BA46AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EDC0C60-388E-49D6-BFBD-9B97ED38FFB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EDC0C60-388E-49D6-BFBD-9B97ED38FFB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EDC0C60-388E-49D6-BFBD-9B97ED38FFB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EDC0C60-388E-49D6-BFBD-9B97ED38FFB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{339C8397-E3F1-4684-A0D2-BB50357FFA12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{339C8397-E3F1-4684-A0D2-BB50357FFA12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{339C8397-E3F1-4684-A0D2-BB50357FFA12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{339C8397-E3F1-4684-A0D2-BB50357FFA12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05EA875B-03D7-4458-A647-415473BA46AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05EA875B-03D7-4458-A647-415473BA46AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05EA875B-03D7-4458-A647-415473BA46AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05EA875B-03D7-4458-A647-415473BA46AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1 @@
+C:\GitHub\SOHR\SOHR\SOHR.Server\bin\Debug\SOHR.Server.exe.config
