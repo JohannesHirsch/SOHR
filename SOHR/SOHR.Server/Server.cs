@@ -72,7 +72,7 @@ namespace SOHR.Server
         /// <summary>
         /// Laden der Header und der ID
         /// </summary>
-        internal void LoadFuleSetHeaders()
+        internal void LoadFileSetHeaders()
         {
             string[] line;
             foreach (var file in Files)

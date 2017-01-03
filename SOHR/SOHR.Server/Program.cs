@@ -13,7 +13,7 @@ namespace SOHR.Server
             Server server = new Server(@"RuleSets");
 
             server.InitServer();
-            server.LoadFuleSetHeaders();
+            server.LoadFileSetHeaders();
         }
     }
 }
