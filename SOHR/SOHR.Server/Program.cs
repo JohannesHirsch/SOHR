@@ -13,8 +13,7 @@ namespace SOHR.Server
         {
             ServiceHost serviceHost = new ServiceHost(typeof(SOHR.Server.Server));
             serviceHost.Open();
-
-            Console.WriteLine("Server initalisiert.");
+            
             Console.ReadLine();
         }
     }

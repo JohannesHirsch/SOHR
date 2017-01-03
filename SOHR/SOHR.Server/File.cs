@@ -11,9 +11,7 @@ namespace SOHR.Server
     internal class File
     {
         #region FIELDS
-        internal StreamReader StreamReader { get; set; }
-        internal StreamWriter StreamWriter { get; set; }
-        internal string Path { get; set; }
+        
         #endregion // FIELDS
 
         #region CONSTRUCTOR
@@ -23,6 +21,10 @@ namespace SOHR.Server
         #endregion // CONSTRUCTOR
 
         #region PROPERTIES
+        /// <summary>
+        /// Pfad des Files
+        /// </summary>
+        internal string Path { get; set; }
         /// <summary>
         /// Fragensatz dieses Files
         /// </summary>

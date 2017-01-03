@@ -83,6 +83,7 @@ namespace SOHR.Server
             Result resultNew;
             int numberOfResults;
             string[] line;
+            int counter = 0;
 
             foreach (var file in files)
             {
@@ -146,30 +147,36 @@ namespace SOHR.Server
                 }
                 fileNew.RuleSet = setNew;
                 Files.Add(fileNew);
+                Console.WriteLine("Regelsatz {0} geladen.", fileNew.RuleSet.Name);
+                counter++;
             }
+            Console.WriteLine("{0} Regelsätze geladen.", counter);
         }
 
         public ObservableCollection<Header> LoadRuleSetHeaders()
         {
             Headers.Clear();
+            int counter = 0;
             foreach (var file in Files)
             {
                 Headers.Add(new Header { Name = file.RuleSet.Name, ID = file.RuleSet.ID, Path = file.Path });
+                counter++;
             }
+            Console.WriteLine("{0} Header an Client übergeben.", counter);
             return Headers;
         }
 
         public RuleSet LoadRuleSet(Guid ID)
         {
-            return Files.Where(f => f.RuleSet.ID == ID).First().RuleSet;
+            var set = Files.Where(f => f.RuleSet.ID == ID).First().RuleSet;
+            Console.WriteLine("Satz {0} an Client übergeben.", set.Name);
+            return set;
         }
 
         void IClientService.SaveRuleSet(RuleSet set)
         {
-            //Überprüfen, nicht aktuell!!
-
-
             File file;
+            StreamWriter streamWriter;
             // ID schon vorhanden?
             if (Files.Where(f => f.RuleSet.ID == set.ID).Count() > 0)
             {
@@ -177,45 +184,46 @@ namespace SOHR.Server
             }
             else
             {
+                set.ID = new Guid();
                 file = new File() { RuleSet = set };
             }
 
             int countQuestion = 0; // Zähler für die Durchnummerierung der Fragen
             int countResult = 0; // Zähler für die Durchnummerierung der Ergebnisse
+            streamWriter = new StreamWriter(file.Path, false);
 
-            file.StreamWriter = new StreamWriter(file.Path);
-            file.StreamWriter.WriteLine("Achtung;Dies ist eine automatisch generierte Datei. Manuelle Änderungen können zu einem Fehlverhalten führen.");
-            file.StreamWriter.WriteLine();
-            file.StreamWriter.WriteLine("Name;{0}", file.RuleSet.Name);
-            file.StreamWriter.WriteLine("ID;{0}", file.RuleSet.ID.ToString());
-            file.StreamWriter.WriteLine("Letzte Änderung;{0}", DateTime.Now.ToString());
-            file.StreamWriter.WriteLine("Kommentar;{0}", file.RuleSet.Comment);
-            file.StreamWriter.WriteLine("Fragen;{0}", file.RuleSet.Questions.Count);
-            file.StreamWriter.WriteLine("Mögliche Ergebnisse;{0}", file.RuleSet.PossibleResults.Count);
-            file.StreamWriter.WriteLine("Min;{0}", file.RuleSet.PossibleMin);
-            file.StreamWriter.WriteLine("Max;{0}", file.RuleSet.PossibleMax);
-            file.StreamWriter.WriteLine();
-            file.StreamWriter.WriteLine("Fragen");
+            streamWriter.WriteLine("Achtung;Dies ist eine automatisch generierte Datei. Manuelle Änderungen können zu einem Fehlverhalten führen.");
+            streamWriter.WriteLine();
+            streamWriter.WriteLine("Name;{0}", file.RuleSet.Name);
+            streamWriter.WriteLine("ID;{0}", file.RuleSet.ID.ToString());
+            streamWriter.WriteLine("Letzte Änderung;{0}", DateTime.Now.ToString());
+            streamWriter.WriteLine("Kommentar;{0}", file.RuleSet.Comment);
+            streamWriter.WriteLine("Fragen;{0}", file.RuleSet.Questions.Count);
+            streamWriter.WriteLine("Mögliche Ergebnisse;{0}", file.RuleSet.PossibleResults.Count);
+            streamWriter.WriteLine("Min;{0}", file.RuleSet.PossibleMin);
+            streamWriter.WriteLine("Max;{0}", file.RuleSet.PossibleMax);
+            streamWriter.WriteLine();
+            streamWriter.WriteLine("Fragen");
             countQuestion = 0;
             foreach (var question in file.RuleSet.Questions)
             {
-                file.StreamWriter.WriteLine("Frage {0};{1} Antwortmöglichkeiten", countQuestion, question.PossibleAnswers.Count);
-                file.StreamWriter.WriteLine("ID;{0}", question.ID);
-                file.StreamWriter.WriteLine(question.Name);
+                streamWriter.WriteLine("Frage {0};{1} Antwortmöglichkeiten", countQuestion, question.PossibleAnswers.Count);
+                streamWriter.WriteLine("ID;{0}", question.ID);
+                streamWriter.WriteLine(question.Name);
                 foreach (var answer in question.PossibleAnswers)
                 {
-                    file.StreamWriter.WriteLine("{0};{1}", answer.Name, answer.Points);
+                    streamWriter.WriteLine("{0};{1}", answer.Name, answer.Points);
                 }
-                file.StreamWriter.WriteLine();
+                streamWriter.WriteLine();
                 countQuestion++;
             }
-            file.StreamWriter.WriteLine("Ergebnisse");
+            streamWriter.WriteLine("Ergebnisse");
             foreach (var result in file.RuleSet.PossibleResults)
             {
-                file.StreamWriter.WriteLine("Ergebnis;{0}", countResult);
-                file.StreamWriter.WriteLine(result.Name);
-                file.StreamWriter.WriteLine("Min;{0}", result.Min);
-                file.StreamWriter.WriteLine("Max;{1}", result.Max);
+                streamWriter.WriteLine("Ergebnis;{0}", countResult);
+                streamWriter.WriteLine(result.Name);
+                streamWriter.WriteLine("Min;{0}", result.Min);
+                streamWriter.WriteLine("Max;{1}", result.Max);
                 countResult++;
             }
         }

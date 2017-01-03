@@ -43,6 +43,13 @@ namespace SOHR.Client
         private void btnEditRuleSet_Click(object sender, EventArgs e)
         {
             var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
+
+            frmRuleSet frmRuleSetEdit = new frmRuleSet(set);                        
+            if(frmRuleSetEdit.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+
         }
 
         private void btnStartQuestioning_Click(object sender, EventArgs e)
