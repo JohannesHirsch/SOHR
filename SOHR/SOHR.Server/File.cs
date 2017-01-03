@@ -13,18 +13,12 @@ namespace SOHR.Server
         #region FIELDS
         internal StreamReader StreamReader { get; set; }
         internal StreamWriter StreamWriter { get; set; }
-        internal string FileName { get; set; }
+        internal string Path { get; set; }
         #endregion // FIELDS
 
         #region CONSTRUCTOR
-        public File(RuleSet set)
-        {
-            FileName = String.Format(@"RuleSets\{0}.csv", set.Name);
-            RuleSet = set;
-        }
         public File()
         {
-            new File(new RuleSet());
         }
         #endregion // CONSTRUCTOR
 

@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxHeaders = new System.Windows.Forms.ComboBox();
             this.btnStartQuestioning = new System.Windows.Forms.Button();
             this.btnNewRuleSet = new System.Windows.Forms.Button();
             this.btnEditRuleSet = new System.Windows.Forms.Button();
             this.btnDeleteRuleSet = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cbxHeaders
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(13, 13);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(193, 21);
-            this.comboBox1.TabIndex = 0;
+            this.cbxHeaders.FormattingEnabled = true;
+            this.cbxHeaders.Location = new System.Drawing.Point(13, 13);
+            this.cbxHeaders.Name = "cbxHeaders";
+            this.cbxHeaders.Size = new System.Drawing.Size(193, 21);
+            this.cbxHeaders.TabIndex = 0;
             // 
             // btnStartQuestioning
             // 
@@ -51,6 +51,7 @@
             this.btnStartQuestioning.TabIndex = 1;
             this.btnStartQuestioning.Text = "Befragung starten";
             this.btnStartQuestioning.UseVisualStyleBackColor = true;
+            this.btnStartQuestioning.Click += new System.EventHandler(this.btnStartQuestioning_Click);
             // 
             // btnNewRuleSet
             // 
@@ -60,6 +61,7 @@
             this.btnNewRuleSet.TabIndex = 1;
             this.btnNewRuleSet.Text = "Neuer Fragensatz";
             this.btnNewRuleSet.UseVisualStyleBackColor = true;
+            this.btnNewRuleSet.Click += new System.EventHandler(this.btnNewRuleSet_Click);
             // 
             // btnEditRuleSet
             // 
@@ -69,6 +71,7 @@
             this.btnEditRuleSet.TabIndex = 1;
             this.btnEditRuleSet.Text = "Fragensatz bearbeiten";
             this.btnEditRuleSet.UseVisualStyleBackColor = true;
+            this.btnEditRuleSet.Click += new System.EventHandler(this.btnEditRuleSet_Click);
             // 
             // btnDeleteRuleSet
             // 
@@ -78,6 +81,7 @@
             this.btnDeleteRuleSet.TabIndex = 1;
             this.btnDeleteRuleSet.Text = "Fragensatz löschen";
             this.btnDeleteRuleSet.UseVisualStyleBackColor = true;
+            this.btnDeleteRuleSet.Click += new System.EventHandler(this.btnDeleteRuleSet_Click);
             // 
             // frmMain
             // 
@@ -88,7 +92,7 @@
             this.Controls.Add(this.btnEditRuleSet);
             this.Controls.Add(this.btnNewRuleSet);
             this.Controls.Add(this.btnStartQuestioning);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxHeaders);
             this.Name = "frmMain";
             this.Text = "SOHR";
             this.ResumeLayout(false);
@@ -97,7 +101,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxHeaders;
         private System.Windows.Forms.Button btnStartQuestioning;
         private System.Windows.Forms.Button btnNewRuleSet;
         private System.Windows.Forms.Button btnEditRuleSet;

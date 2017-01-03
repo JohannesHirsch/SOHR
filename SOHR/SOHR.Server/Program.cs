@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,10 +11,11 @@ namespace SOHR.Server
     {
         static void Main(string[] args)
         {
-            Server server = new Server(@"RuleSets");
+            ServiceHost serviceHost = new ServiceHost(typeof(SOHR.Server.Server));
+            serviceHost.Open();
 
-            server.InitServer();
-            server.LoadFileSetHeaders();
+            Console.WriteLine("Server initalisiert.");
+            Console.ReadLine();
         }
     }
 }

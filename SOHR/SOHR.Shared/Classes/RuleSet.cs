@@ -15,7 +15,6 @@ namespace SOHR.Shared
         #region CONSTRUCTOR
         public RuleSet()
         {
-            CalculateBoundaries();
         }
         #endregion // CONSTRUCTOR
 
@@ -30,11 +29,52 @@ namespace SOHR.Shared
         /// <summary>
         /// Mögliches Punktemaximum für diesen Fragensatz
         /// </summary>
-        public int PossibleMax { get; set; }
+        public int PossibleMax
+        {
+            get
+            {
+                int max = 0;
+                int localmax;
+                foreach (var question in Questions)
+                {
+                    localmax = 0;
+                    foreach (var answer in question.PossibleAnswers)
+                    {                        
+                        if (answer.Points > localmax)
+                        {
+                            localmax += answer.Points;
+                        }
+                    }
+                    max += localmax;
+                }
+                return max;
+            }
+        }
+
         /// <summary>
         /// Mögliches Punkteminimum für diesen Fragensatz
         /// </summary>
-        public int PossibleMin { get; set; }
+        public int PossibleMin
+        {
+            get
+            {
+                int min = 0;
+                int localmin;
+                foreach (var question in Questions)
+                {
+                    localmin = 0;
+                    foreach (var answer in question.PossibleAnswers)
+                    {
+                        if (answer.Points < localmin)
+                        {
+                            localmin += answer.Points;
+                        }
+                    }
+                    min += localmin;
+                }
+                return min;
+            }
+        }
         /// <summary>
         /// Kommentar
         /// </summary>
@@ -42,30 +82,8 @@ namespace SOHR.Shared
 
         #endregion // PROPERTIES
 
-        #region PRIVATE METHODS
-        void CalculateBoundaries()
-        {
-            int localmin;
-            int localmax;
-            foreach (var question in Questions)
-            {
-                localmax = 0;
-                localmin = 0;
-                foreach (var answer in question.PossibleAnswers)
-                {
-                    if(answer.Points < localmin)
-                    {
-                        localmin += answer.Points;
-                    }
-                    if(answer.Points > localmax)
-                    {
-                        localmax += answer.Points;
-                    }
-                }
-                PossibleMax += localmax;
-                PossibleMin += localmin;
-            }
-        }
+        #region PRIVATE METHODS        
+        
         #endregion PRIVATE METHODS
 
         #region PUBLIC METHODS

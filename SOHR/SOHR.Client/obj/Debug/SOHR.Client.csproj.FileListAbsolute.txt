@@ -10,3 +10,5 @@ C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.Properties.Resources.resou
 C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.csproj.GenerateResource.Cache
 C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.exe
 C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.pdb
+C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.frmResult.resources
+C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.frmRuleSet.resources
