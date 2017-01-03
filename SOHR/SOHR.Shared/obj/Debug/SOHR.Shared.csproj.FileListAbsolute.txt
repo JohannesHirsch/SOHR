@@ -1,5 +1,4 @@
 C:\GitHub\SOHR\SOHR\SOHR.Shared\bin\Debug\SOHR.Shared.dll
 C:\GitHub\SOHR\SOHR\SOHR.Shared\bin\Debug\SOHR.Shared.pdb
-C:\GitHub\SOHR\SOHR\SOHR.Shared\obj\Debug\SOHR.Shared.csprojResolveAssemblyReference.cache
 C:\GitHub\SOHR\SOHR\SOHR.Shared\obj\Debug\SOHR.Shared.dll
 C:\GitHub\SOHR\SOHR\SOHR.Shared\obj\Debug\SOHR.Shared.pdb

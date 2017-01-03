@@ -1,0 +1,12 @@
+C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.csprojResolveAssemblyReference.cache
+C:\GitHub\SOHR\SOHR\SOHR.Client\bin\Debug\SOHR.Client.exe.config
+C:\GitHub\SOHR\SOHR\SOHR.Client\bin\Debug\SOHR.Client.exe
+C:\GitHub\SOHR\SOHR\SOHR.Client\bin\Debug\SOHR.Client.pdb
+C:\GitHub\SOHR\SOHR\SOHR.Client\bin\Debug\SOHR.Shared.dll
+C:\GitHub\SOHR\SOHR\SOHR.Client\bin\Debug\SOHR.Shared.pdb
+C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.frmMain.resources
+C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.frmQuestion.resources
+C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.Properties.Resources.resources
+C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.csproj.GenerateResource.Cache
+C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.exe
+C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.pdb

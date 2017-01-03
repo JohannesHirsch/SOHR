@@ -91,7 +91,7 @@ namespace SOHR.Server
         /// <summary>
         /// Laden der Rollensätze
         /// </summary>
-        internal void LoadRuleSets(Guid ID)
+        internal void LoadRuleSets(RuleSet set)
         {
             
 
