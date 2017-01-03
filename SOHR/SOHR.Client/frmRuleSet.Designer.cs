@@ -1,6 +1,6 @@
 ﻿namespace SOHR.Client
 {
-    partial class frmQuestion
+    partial class frmRuleSet
     {
         /// <summary>
         /// Required designer variable.

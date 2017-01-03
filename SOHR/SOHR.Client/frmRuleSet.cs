@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SOHR.Client
 {
-    public partial class frmQuestion : Form
+    public partial class frmRuleSet : Form
     {
-        public frmQuestion()
+        public frmRuleSet()
         {
             InitializeComponent();
         }
