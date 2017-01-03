@@ -13,6 +13,10 @@ namespace SOHR.Shared
         #endregion // FIELDS
 
         #region CONSTRUCTOR
+        public RuleSet()
+        {
+            CalculateBoundaries();
+        }
         #endregion // CONSTRUCTOR
 
         #region PROPERTIES

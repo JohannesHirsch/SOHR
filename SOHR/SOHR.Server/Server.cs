@@ -12,7 +12,7 @@ namespace SOHR.Server
     public class Server
     {
         #region FIELDS
-        ObservableCollection<string> setRuleSetHeaders;
+        //ObservableCollection<string> setRuleSetHeaders;
         ObservableCollection<File> setFiles;
         
         #endregion // FIELDS
@@ -45,17 +45,17 @@ namespace SOHR.Server
                 setFiles = value;
             }
         }
-        internal ObservableCollection<string> RulesetHeaders
-        {
-            get
-            {
-                return setRuleSetHeaders;
-            }
-            set
-            {
-                setRuleSetHeaders = value;
-            }
-        }
+        //internal ObservableCollection<string> RulesetHeaders
+        //{
+        //    get
+        //    {
+        //        return setRuleSetHeaders;
+        //    }
+        //    set
+        //    {
+        //        setRuleSetHeaders = value;
+        //    }
+        //}
         #endregion // PROPERTIES
 
         #region PRIVATE METHODS
@@ -63,9 +63,9 @@ namespace SOHR.Server
         {
             IEnumerable<string> files = Directory.GetFiles(Path).ToList();
             files = files.Where(f => f.Contains(".csv"));
-            foreach (var file in files)
+            foreach (var file in setFiles)
             {
-                Files.Add(new File(file));
+                Files.Add(new File(new RuleSet()));
                 var test = DateTime.Now.ToString();
             }
         }
@@ -91,41 +91,66 @@ namespace SOHR.Server
         /// <summary>
         /// Laden der Rollensätze
         /// </summary>
-        internal void LoadRuleSets()
+        internal void LoadRuleSets(Guid ID)
         {
-            int i = 0;     
-            foreach (var file in Files)
-            {
-                file.StreamWriter = new StreamWriter(file.FileName);
-                file.StreamWriter.WriteLine("Achtung;Dies ist eine automatisch generierte Datei. Manuelle Änderungen können zu einem Fehlverhalten führen.");
-                file.StreamWriter.WriteLine();
-                file.StreamWriter.WriteLine("Name;{0}", file.RuleSet.Name);
-                file.StreamWriter.WriteLine("ID;{0}", file.RuleSet.ID.ToString());
-                file.StreamWriter.WriteLine("Letzte Änderung;{0}", DateTime.Now.ToString());
-                file.StreamWriter.WriteLine("Kommentar;{0}", file.RuleSet.Comment);
-                file.StreamWriter.WriteLine("Fragen;{0}", file.RuleSet.Questions.Count);
-                file.StreamWriter.WriteLine("Mögliche Ergebnisse;{0}", file.RuleSet.PossibleResults.Count);
-                file.StreamWriter.WriteLine("Min;{0}", file.RuleSet.PossibleMin);
-                file.StreamWriter.WriteLine("Max;{0}", file.RuleSet.PossibleMax);
-                file.StreamWriter.WriteLine();
-                file.StreamWriter.WriteLine("Fragen");
-                i = 0;
-                foreach (var question in file.RuleSet.Questions)
-                {
-
-
-
-                    i++;
-                }
-            }
+            
 
         }
         /// <summary>
         /// Speichern der Rollensätze
         /// </summary>
-        internal void SaveRuleSets()
+        internal void SaveRuleSet(RuleSet set)
         {
-            //TODO: Methode zum Speichern eines bestimmeten Satzes
+            File file;
+            // ID schon vorhanden?
+            if (setFiles.Where(f => f.RuleSet.ID == set.ID).Count() > 0)
+            {
+                file = setFiles.Where(f => f.RuleSet.ID == set.ID).First();
+            }
+            else
+            {
+                file = new File(set);
+            }
+
+            int countQuestion = 0; // Zähler für die Durchnummerierung der Fragen
+            int countResult = 0; // Zähler für die Durchnummerierung der Ergebnisse
+
+            file.StreamWriter = new StreamWriter(file.FileName);
+            file.StreamWriter.WriteLine("Achtung;Dies ist eine automatisch generierte Datei. Manuelle Änderungen können zu einem Fehlverhalten führen.");
+            file.StreamWriter.WriteLine();
+            file.StreamWriter.WriteLine("Name;{0}", file.RuleSet.Name);
+            file.StreamWriter.WriteLine("ID;{0}", file.RuleSet.ID.ToString());
+            file.StreamWriter.WriteLine("Letzte Änderung;{0}", DateTime.Now.ToString());
+            file.StreamWriter.WriteLine("Kommentar;{0}", file.RuleSet.Comment);
+            file.StreamWriter.WriteLine("Fragen;{0}", file.RuleSet.Questions.Count);
+            file.StreamWriter.WriteLine("Mögliche Ergebnisse;{0}", file.RuleSet.PossibleResults.Count);
+            file.StreamWriter.WriteLine("Min;{0}", file.RuleSet.PossibleMin);
+            file.StreamWriter.WriteLine("Max;{0}", file.RuleSet.PossibleMax);
+            file.StreamWriter.WriteLine();
+            file.StreamWriter.WriteLine("Fragen");
+            countQuestion = 0;
+            foreach (var question in file.RuleSet.Questions)
+            {
+                file.StreamWriter.WriteLine("Frage {0};{1} Antwortmöglichkeiten", countQuestion, question.PossibleAnswers.Count);
+                file.StreamWriter.WriteLine("ID;{0}", question.ID);
+                file.StreamWriter.WriteLine(question.Name);
+                foreach (var answer in question.PossibleAnswers)
+                {
+                    file.StreamWriter.WriteLine("{0};{1}", answer.Name, answer.Points);
+                }
+                file.StreamWriter.WriteLine();
+                countQuestion++;
+            }
+            file.StreamWriter.WriteLine("Ergebnisse");
+            foreach (var result in file.RuleSet.PossibleResults)
+            {
+                file.StreamWriter.WriteLine("Ergebnis;{0}", countResult);
+                file.StreamWriter.WriteLine(result.Name);
+                file.StreamWriter.WriteLine("Min;{0}", result.Min);
+                file.StreamWriter.WriteLine("Max;{1}", result.Max);
+                countResult++;
+            }
+
         }
         #endregion PRIVATE METHODS
 

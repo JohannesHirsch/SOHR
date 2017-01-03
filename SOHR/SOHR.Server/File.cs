@@ -17,10 +17,14 @@ namespace SOHR.Server
         #endregion // FIELDS
 
         #region CONSTRUCTOR
-        internal File(string path)
+        public File(RuleSet set)
         {
-            FileName = path;
-            RuleSet = new RuleSet();
+            FileName = String.Format(@"RuleSets\{0}.csv", set.Name);
+            RuleSet = set;
+        }
+        public File()
+        {
+            new File(new RuleSet());
         }
         #endregion // CONSTRUCTOR
 
@@ -28,7 +32,7 @@ namespace SOHR.Server
         /// <summary>
         /// Fragensatz dieses Files
         /// </summary>
-        internal RuleSet RuleSet { get; set; }
+        public RuleSet RuleSet { get; set; }
         #endregion // PROPERTIES
 
         #region PRIVATE METHODS
