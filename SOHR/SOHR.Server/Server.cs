@@ -90,8 +90,6 @@ namespace SOHR.Server
                 streamReader = new StreamReader(file);
                 fileNew = new File() { Path = file };
                 setNew = new RuleSet();
-                setNew.Questions = new ObservableCollection<Question>();
-                setNew.PossibleResults = new ObservableCollection<Result>();
                 streamReader.ReadLine(); // Achtung ...
                 streamReader.ReadLine(); //...
                 line = streamReader.ReadLine().Split(';'); //Name ...
@@ -115,7 +113,6 @@ namespace SOHR.Server
                     Int32.TryParse(line[2], out numberOfAnswers);
                     line = streamReader.ReadLine().Split(';');
                     questionNew = new Question();
-                    questionNew.PossibleAnswers = new ObservableCollection<Answer>();
                     questionNew.ID = new Guid(line[1]);
                     questionNew.Name = streamReader.ReadLine();
                     for (int j = 0; j < numberOfAnswers; j++)
@@ -156,7 +153,7 @@ namespace SOHR.Server
         public ObservableCollection<Header> LoadRuleSetHeaders()
         {
             Headers.Clear();
-            int counter = 0;
+            int counter = 1;
             foreach (var file in Files)
             {
                 Headers.Add(new Header { Name = file.RuleSet.Name, ID = file.RuleSet.ID, Path = file.Path });
@@ -184,12 +181,12 @@ namespace SOHR.Server
             }
             else
             {
-                set.ID = new Guid();
                 file = new File() { RuleSet = set };
+                file.Path = String.Format(@"RuleSets\{0}.csv", set.Name);
             }
 
-            int countQuestion = 0; // Zähler für die Durchnummerierung der Fragen
-            int countResult = 0; // Zähler für die Durchnummerierung der Ergebnisse
+            int countQuestion = 1; // Zähler für die Durchnummerierung der Fragen
+            int countResult = 1; // Zähler für die Durchnummerierung der Ergebnisse
             streamWriter = new StreamWriter(file.Path, false);
 
             streamWriter.WriteLine("Achtung;Dies ist eine automatisch generierte Datei. Manuelle Änderungen können zu einem Fehlverhalten führen.");
@@ -204,10 +201,10 @@ namespace SOHR.Server
             streamWriter.WriteLine("Max;{0}", file.RuleSet.PossibleMax);
             streamWriter.WriteLine();
             streamWriter.WriteLine("Fragen");
-            countQuestion = 0;
+            countQuestion = 1;
             foreach (var question in file.RuleSet.Questions)
             {
-                streamWriter.WriteLine("Frage {0};{1} Antwortmöglichkeiten", countQuestion, question.PossibleAnswers.Count);
+                streamWriter.WriteLine("Frage {0};Antwortmöglichkeiten;{1}", countQuestion, question.PossibleAnswers.Count);
                 streamWriter.WriteLine("ID;{0}", question.ID);
                 streamWriter.WriteLine(question.Name);
                 foreach (var answer in question.PossibleAnswers)
@@ -223,9 +220,11 @@ namespace SOHR.Server
                 streamWriter.WriteLine("Ergebnis;{0}", countResult);
                 streamWriter.WriteLine(result.Name);
                 streamWriter.WriteLine("Min;{0}", result.Min);
-                streamWriter.WriteLine("Max;{1}", result.Max);
+                streamWriter.WriteLine("Max;{0}", result.Max);
+                streamWriter.WriteLine();
                 countResult++;
             }
+            streamWriter.Close();
         }
 
         public void DeleteRuleSet(Guid ID)

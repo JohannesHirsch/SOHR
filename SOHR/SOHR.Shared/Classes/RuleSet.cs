@@ -10,22 +10,48 @@ namespace SOHR.Shared
     public class RuleSet : ModelBase
     {
         #region FIELDS
+        protected ObservableCollection<Question> setQuestions;
+        protected ObservableCollection<Result> setPossibleResults;
         #endregion // FIELDS
 
         #region CONSTRUCTOR
         public RuleSet()
         {
+            ID = Guid.NewGuid();
+            setPossibleResults = new ObservableCollection<Result>();
+            setQuestions = new ObservableCollection<Question>();
         }
         #endregion // CONSTRUCTOR
 
         #region PROPERTIES
+        /// <summary>
         /// Liste der Fragen
         /// </summary>
-        public ObservableCollection<Question> Questions { get; set; }
+        public ObservableCollection<Question> Questions
+        {
+            get
+            {
+                return setQuestions;
+            }
+            set
+            {
+                setQuestions = value;
+            }
+        }       
         /// <summary>
         /// Mögliche Ergebnisse
         /// </summary>
-        public ObservableCollection<Result> PossibleResults { get; set; }
+        public ObservableCollection<Result> PossibleResults
+        {
+            get
+            {
+                return setPossibleResults;
+            }
+            set
+            {
+                setPossibleResults = value;
+            }
+        }
         /// <summary>
         /// Mögliches Punktemaximum für diesen Fragensatz
         /// </summary>

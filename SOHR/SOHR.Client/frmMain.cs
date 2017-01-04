@@ -37,7 +37,6 @@ namespace SOHR.Client
             {
                 cbxHeaders.Items.Add(header);
             }
-
         }
 
         private void btnEditRuleSet_Click(object sender, EventArgs e)
@@ -55,6 +54,8 @@ namespace SOHR.Client
         private void btnStartQuestioning_Click(object sender, EventArgs e)
         {
             var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
+            set.Name = "new";
+            remoteClientService.SaveRuleSet(set);
         }
 
         private void btnNewRuleSet_Click(object sender, EventArgs e)
