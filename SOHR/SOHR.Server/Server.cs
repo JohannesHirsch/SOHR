@@ -142,6 +142,7 @@ namespace SOHR.Server
                     resultNew.Max = points;
                     setNew.PossibleResults.Add(resultNew);
                 }
+                streamReader.Close();
                 fileNew.RuleSet = setNew;
                 Files.Add(fileNew);
                 Console.WriteLine("Regelsatz {0} geladen.", fileNew.RuleSet.Name);
@@ -153,7 +154,7 @@ namespace SOHR.Server
         public ObservableCollection<Header> LoadRuleSetHeaders()
         {
             Headers.Clear();
-            int counter = 1;
+            int counter = 0;
             foreach (var file in Files)
             {
                 Headers.Add(new Header { Name = file.RuleSet.Name, ID = file.RuleSet.ID, Path = file.Path });
@@ -178,6 +179,8 @@ namespace SOHR.Server
             if (Files.Where(f => f.RuleSet.ID == set.ID).Count() > 0)
             {
                 file = Files.Where(f => f.RuleSet.ID == set.ID).First();
+                System.IO.File.Delete(file.Path);
+                file.Path = String.Format(@"RuleSets\{0}.csv", set.Name);
             }
             else
             {
@@ -229,7 +232,9 @@ namespace SOHR.Server
 
         public void DeleteRuleSet(Guid ID)
         {
-            throw new NotImplementedException();
+            File file = Files.Where(f => f.RuleSet.ID == ID).First();
+            System.IO.File.Delete(file.Path);
+            Files.Remove(file);
         }
         #endregion PRIVATE METHODS
 

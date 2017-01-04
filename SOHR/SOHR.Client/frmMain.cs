@@ -49,23 +49,27 @@ namespace SOHR.Client
 
             }
 
+            //Event zum Aktualisieren der Header feuern
+
         }
 
         private void btnStartQuestioning_Click(object sender, EventArgs e)
         {
             var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
-            set.Name = "new";
-            remoteClientService.SaveRuleSet(set);
         }
 
         private void btnNewRuleSet_Click(object sender, EventArgs e)
         {
 
+            //Event zum Aktualisieren der Header feuern
         }
 
         private void btnDeleteRuleSet_Click(object sender, EventArgs e)
         {
             var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
+            remoteClientService.DeleteRuleSet(set.ID);
+
+            //Event zum Aktualisieren der Header feuern
         }
     }
 }
