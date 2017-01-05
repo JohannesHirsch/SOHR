@@ -13,6 +13,7 @@ namespace SOHR.Shared
 
         #region CONSTRUCTOR
         #endregion // CONSTRUCTOR
+        //Änderung Spindlberger
 
         #region PROPERTIES
         /// <summary>

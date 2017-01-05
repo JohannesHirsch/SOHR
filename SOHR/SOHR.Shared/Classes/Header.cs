@@ -12,6 +12,7 @@ namespace SOHR.Shared
         public override string ToString()
         {
             return Name;
+            //Änderung Spindlberger
         }
     }
 }
