@@ -1,4 +1,11 @@
-﻿using System;
+﻿//***********************************************************//
+// File:    RuleSet
+// Project: SOHR.Shared
+// Date:    29.12.2016
+// Comment: Satz von Fragen
+//***********************************************************//
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,6 +14,9 @@ using System.Threading.Tasks;
 
 namespace SOHR.Shared
 {
+    /// <summary>
+    /// Satz von Fragen
+    /// </summary>
     public class RuleSet : ModelBase
     {
         #region FIELDS
@@ -101,10 +111,6 @@ namespace SOHR.Shared
                 return min;
             }
         }
-        /// <summary>
-        /// Kommentar
-        /// </summary>
-        public string Comment { get; set; }
 
         #endregion // PROPERTIES
 

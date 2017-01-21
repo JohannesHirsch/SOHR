@@ -1,4 +1,11 @@
-﻿using SOHR.Shared;
+﻿//***********************************************************//
+// File:    frmRuleSet
+// Project: SOHR.Server
+// Date:    29.12.2016
+// Comment: Fragensatzform-CodeBehind
+//***********************************************************//
+
+using SOHR.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +18,9 @@ using System.Windows.Forms;
 
 namespace SOHR.Client
 {
+    /// <summary>
+    /// Fragensatzform-CodeBehind
+    /// </summary>
     public partial class frmRuleSet : Form
     {
         RuleSet ruleSet;

@@ -2,8 +2,6 @@ C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.csprojResolveAssemblyRefer
 C:\GitHub\SOHR\SOHR\SOHR.Client\bin\Debug\SOHR.Client.exe.config
 C:\GitHub\SOHR\SOHR\SOHR.Client\bin\Debug\SOHR.Client.exe
 C:\GitHub\SOHR\SOHR\SOHR.Client\bin\Debug\SOHR.Client.pdb
-C:\GitHub\SOHR\SOHR\SOHR.Client\bin\Debug\SOHR.Shared.dll
-C:\GitHub\SOHR\SOHR\SOHR.Client\bin\Debug\SOHR.Shared.pdb
 C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.frmMain.resources
 C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.frmQuestion.resources
 C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.Properties.Resources.resources
@@ -12,3 +10,5 @@ C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.exe
 C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.pdb
 C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.frmResult.resources
 C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Debug\SOHR.Client.frmRuleSet.resources
+C:\GitHub\SOHR\SOHR\SOHR.Client\bin\Debug\SOHR.Shared.dll
+C:\GitHub\SOHR\SOHR\SOHR.Client\bin\Debug\SOHR.Shared.pdb

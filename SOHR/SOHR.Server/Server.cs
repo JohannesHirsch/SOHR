@@ -1,4 +1,11 @@
-﻿using System;
+﻿//***********************************************************//
+// File:    Server
+// Project: SOHR.Server
+// Date:    29.12.2016
+// Comment: Implementierung zum Interface IClientService
+//***********************************************************//
+
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +18,9 @@ using System.ServiceModel;
 
 namespace SOHR.Server
 {
+    /// <summary>
+    /// Implementierung zum Interface IClientService
+    /// </summary>
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class Server : IClientService
     {
@@ -32,7 +42,7 @@ namespace SOHR.Server
 
         #region PROPERTIES
         /// <summary>
-        /// Pfad, wo der Server die Fragensätze abspeichert
+        /// Pfad, an dem Server die Fragensätze abspeichert
         /// </summary>
         string Path { get; set; }
         /// <summary>
@@ -151,6 +161,8 @@ namespace SOHR.Server
             Console.WriteLine("{0} Regelsätze geladen.", counter);
         }
 
+        #region IClientService
+
         public ObservableCollection<Header> LoadRuleSetHeaders()
         {
             Headers.Clear();
@@ -171,7 +183,9 @@ namespace SOHR.Server
             return set;
         }
 
-        void IClientService.SaveRuleSet(RuleSet set)
+        
+       
+        public void SaveRuleSet(RuleSet set)
         {
             File file;
             StreamWriter streamWriter;
@@ -236,6 +250,8 @@ namespace SOHR.Server
             System.IO.File.Delete(file.Path);
             Files.Remove(file);
         }
+        #endregion  IClientService
+
         #endregion PRIVATE METHODS
 
         #region PUBLIC METHODS

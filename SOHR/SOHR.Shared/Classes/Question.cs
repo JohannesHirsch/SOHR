@@ -1,4 +1,11 @@
-﻿using System;
+﻿//***********************************************************//
+// File:    Question
+// Project: SOHR.Shared
+// Date:    29.12.2016
+// Comment: Frage eines Fragensatzes
+//***********************************************************//
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,6 +14,9 @@ using System.Threading.Tasks;
 
 namespace SOHR.Shared
 {
+    /// <summary>
+    /// Frage eines Fragensatzes
+    /// </summary>
     public class Question : ModelBase
     {
         #region FIELDS

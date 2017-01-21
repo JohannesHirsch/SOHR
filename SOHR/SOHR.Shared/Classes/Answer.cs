@@ -1,4 +1,11 @@
-﻿using System;
+﻿//***********************************************************//
+// File:    Answer
+// Project: SOHR.Shared
+// Date:    29.12.2016
+// Comment: Antwort einer Frage
+//***********************************************************//
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +13,9 @@ using System.Threading.Tasks;
 
 namespace SOHR.Shared
 {
+    /// <summary>
+    /// Antwort einer Frage
+    /// </summary>
     public class Answer : ModelBase
     {
         #region FIELDS
@@ -13,7 +23,6 @@ namespace SOHR.Shared
 
         #region CONSTRUCTOR
         #endregion // CONSTRUCTOR
-        //Änderung Spindlberger
 
         #region PROPERTIES
         /// <summary>

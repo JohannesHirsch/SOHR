@@ -1,4 +1,11 @@
-﻿using System;
+﻿//***********************************************************//
+// File:    File
+// Project: SOHR.Server
+// Date:    29.12.2016
+// Comment: Datei, in der ein Fragensatz abgelegt wird (.csv)
+//***********************************************************//
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,6 +15,9 @@ using SOHR.Shared;
 
 namespace SOHR.Server
 {
+    /// <summary>
+    /// Datei, in der ein Fragensatz abgelegt wird (.csv)
+    /// </summary>
     internal class File
     {
         #region FIELDS

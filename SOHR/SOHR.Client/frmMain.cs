@@ -1,4 +1,11 @@
-﻿using System;
+﻿//***********************************************************//
+// File:    frmMain
+// Project: SOHR.Server
+// Date:    29.12.2016
+// Comment: Hauptform-CodeBehind
+//***********************************************************//
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +20,9 @@ using SOHR.Shared;
 
 namespace SOHR.Client
 {
+    /// <summary>
+    /// Hauptform-CodeBehind
+    /// </summary>
     public partial class frmMain : Form
     {
         private IClientService remoteClientService;
