@@ -43,6 +43,7 @@
             this.cbxHeaders.Name = "cbxHeaders";
             this.cbxHeaders.Size = new System.Drawing.Size(193, 21);
             this.cbxHeaders.TabIndex = 0;
+            this.cbxHeaders.TextChanged += new System.EventHandler(this.cbxHeaders_TextChanged);
             // 
             // btnStartQuestioning
             // 

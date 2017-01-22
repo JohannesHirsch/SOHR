@@ -30,6 +30,9 @@ namespace SOHR.Client
         public frmMain()
         {
             InitializeComponent();
+            btnDeleteRuleSet.Enabled = false;
+            btnEditRuleSet.Enabled = false;
+            btnStartQuestioning.Enabled = false;            
 
             try
             {
@@ -60,11 +63,20 @@ namespace SOHR.Client
         private void btnStartQuestioning_Click(object sender, EventArgs e)
         {
             var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
+            frmQuestioning frmquestioning = new frmQuestioning(set);
+            if (frmquestioning.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
         private void btnNewRuleSet_Click(object sender, EventArgs e)
         {
+            frmRuleSet frmRuleSetENew = new frmRuleSet();
+            if (frmRuleSetENew.ShowDialog() == DialogResult.OK)
+            {
 
+            }
             UpdateHeaders();
         }
 
@@ -84,6 +96,13 @@ namespace SOHR.Client
             {
                 cbxHeaders.Items.Add(header);
             }
+        }
+
+        private void cbxHeaders_TextChanged(object sender, EventArgs e)
+        {
+            btnDeleteRuleSet.Enabled = true;
+            btnEditRuleSet.Enabled = true;
+            btnStartQuestioning.Enabled = true;
         }
     }
 }

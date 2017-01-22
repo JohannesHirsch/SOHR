@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbxRuleSetName = new System.Windows.Forms.TextBox();
-            this.lstvwQuestions = new System.Windows.Forms.ListView();
-            this.lstvwResults = new System.Windows.Forms.ListView();
             this.btnNewQuestion = new System.Windows.Forms.Button();
             this.btnEditQuestion = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -40,6 +39,14 @@
             this.tbxComment = new System.Windows.Forms.TextBox();
             this.lbName = new System.Windows.Forms.Label();
             this.lbComment = new System.Windows.Forms.Label();
+            this.dgvQuestions = new System.Windows.Forms.DataGridView();
+            this.srcQuestions = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvResults = new System.Windows.Forms.DataGridView();
+            this.srcResult = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQuestions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.srcQuestions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.srcResult)).BeginInit();
             this.SuspendLayout();
             // 
             // tbxRuleSetName
@@ -48,29 +55,6 @@
             this.tbxRuleSetName.Name = "tbxRuleSetName";
             this.tbxRuleSetName.Size = new System.Drawing.Size(683, 20);
             this.tbxRuleSetName.TabIndex = 0;
-            // 
-            // lstvwQuestions
-            // 
-            this.lstvwQuestions.AutoArrange = false;
-            this.lstvwQuestions.FullRowSelect = true;
-            this.lstvwQuestions.GridLines = true;
-            this.lstvwQuestions.LabelWrap = false;
-            this.lstvwQuestions.Location = new System.Drawing.Point(13, 89);
-            this.lstvwQuestions.MultiSelect = false;
-            this.lstvwQuestions.Name = "lstvwQuestions";
-            this.lstvwQuestions.Size = new System.Drawing.Size(748, 229);
-            this.lstvwQuestions.TabIndex = 1;
-            this.lstvwQuestions.UseCompatibleStateImageBehavior = false;
-            this.lstvwQuestions.View = System.Windows.Forms.View.List;
-            // 
-            // lstvwResults
-            // 
-            this.lstvwResults.Location = new System.Drawing.Point(12, 350);
-            this.lstvwResults.Name = "lstvwResults";
-            this.lstvwResults.Size = new System.Drawing.Size(748, 229);
-            this.lstvwResults.TabIndex = 1;
-            this.lstvwResults.UseCompatibleStateImageBehavior = false;
-            this.lstvwResults.View = System.Windows.Forms.View.List;
             // 
             // btnNewQuestion
             // 
@@ -154,11 +138,35 @@
             this.lbComment.TabIndex = 4;
             this.lbComment.Text = "Kommentar";
             // 
+            // dgvQuestions
+            // 
+            this.dgvQuestions.AllowUserToAddRows = false;
+            this.dgvQuestions.AllowUserToDeleteRows = false;
+            this.dgvQuestions.AutoGenerateColumns = false;
+            this.dgvQuestions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQuestions.DataSource = this.srcQuestions;
+            this.dgvQuestions.Location = new System.Drawing.Point(13, 88);
+            this.dgvQuestions.Name = "dgvQuestions";
+            this.dgvQuestions.Size = new System.Drawing.Size(747, 238);
+            this.dgvQuestions.TabIndex = 5;
+            // 
+            // dgvResults
+            // 
+            this.dgvResults.AutoGenerateColumns = false;
+            this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResults.DataSource = this.srcResult;
+            this.dgvResults.Location = new System.Drawing.Point(13, 350);
+            this.dgvResults.Name = "dgvResults";
+            this.dgvResults.Size = new System.Drawing.Size(747, 228);
+            this.dgvResults.TabIndex = 5;
+            // 
             // frmRuleSet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(894, 627);
+            this.Controls.Add(this.dgvResults);
+            this.Controls.Add(this.dgvQuestions);
             this.Controls.Add(this.lbComment);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.btnCancel);
@@ -167,12 +175,14 @@
             this.Controls.Add(this.btnEditQuestion);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnNewQuestion);
-            this.Controls.Add(this.lstvwResults);
-            this.Controls.Add(this.lstvwQuestions);
             this.Controls.Add(this.tbxComment);
             this.Controls.Add(this.tbxRuleSetName);
             this.Name = "frmRuleSet";
             this.Text = "Fragensatz";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQuestions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.srcQuestions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.srcResult)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,16 +191,18 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbxRuleSetName;
-        private System.Windows.Forms.ListView lstvwResults;
         private System.Windows.Forms.Button btnNewQuestion;
         private System.Windows.Forms.Button btnEditQuestion;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.ListView lstvwQuestions;
         private System.Windows.Forms.TextBox tbxComment;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbComment;
+        private System.Windows.Forms.DataGridView dgvQuestions;
+        private System.Windows.Forms.DataGridView dgvResults;
+        private System.Windows.Forms.BindingSource srcQuestions;
+        private System.Windows.Forms.BindingSource srcResult;
     }
 }

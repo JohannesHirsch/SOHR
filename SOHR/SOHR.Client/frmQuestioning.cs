@@ -5,6 +5,7 @@
 // Comment: Befragungsform-CodeBehind
 //***********************************************************//
 
+using SOHR.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,7 @@ namespace SOHR.Client
     /// </summary>
     public partial class frmQuestioning : Form
     {
-        public frmQuestioning()
+        public frmQuestioning(RuleSet set)
         {
             InitializeComponent();
         }

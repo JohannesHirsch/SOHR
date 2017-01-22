@@ -27,14 +27,45 @@ namespace SOHR.Client
         {
             InitializeComponent();
 
-            questionEdit = question;
+            Question = question;
+
+            // dgvResult
+            DataGridViewCell cell = new DataGridViewTextBoxCell();
+            DataGridViewTextBoxColumn colAnswer = new DataGridViewTextBoxColumn()
+            {
+                CellTemplate = cell,
+                Name = "Answer",
+                HeaderText = "Antwort",
+                DataPropertyName = "Name",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+            };
+            DataGridViewTextBoxColumn colPoints = new DataGridViewTextBoxColumn()
+            {
+                CellTemplate = cell,
+                Name = "Points",
+                HeaderText = "Punkte",
+                DataPropertyName = "Points",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+            };
+            
+            dgvAnswers.Columns.Add(colAnswer);
+            dgvAnswers.Columns.Add(colPoints);
+            var answersList = new BindingList<Answer>(Question.PossibleAnswers);
+            dgvAnswers.DataSource = answersList;
         }
 
         #region Properties
 
-        public Question questionEdit { get; set; }
+        public Question Question { get; set; }
 
         #endregion Properties
 
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(tbxQuestion.Text) && dgvAnswers.RowCount > 2)
+            {
+                DialogResult = DialogResult.OK;
+            }
+        }
     }
 }

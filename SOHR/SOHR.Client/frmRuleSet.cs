@@ -24,6 +24,8 @@ namespace SOHR.Client
     /// </summary>
     public partial class frmRuleSet : Form
     {
+        BindingList<Question> questionsList;
+        BindingList<Result> resultsList;
 
         public frmRuleSet()
         {
@@ -36,31 +38,94 @@ namespace SOHR.Client
             tbxRuleSetName.Text = SetEdit.Name;
             tbxComment.Text = SetEdit.Comment;
 
-            foreach (var question in SetEdit.Questions)
+            DataGridViewCell cell = new DataGridViewTextBoxCell();
+            // dgvQuestion
+            DataGridViewTextBoxColumn colQuestion = new DataGridViewTextBoxColumn()
             {
-                lstvwQuestions.Items.Add(question.Name);
-            }
+                CellTemplate = cell,
+                Name = "Quesiton",
+                HeaderText = "Frage",
+                DataPropertyName = "Name",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+                ReadOnly = true
+            };
+            dgvQuestions.AllowUserToAddRows = false;
+            dgvQuestions.AllowUserToDeleteRows = false;
+            
+            dgvQuestions.Columns.Add(colQuestion);
 
-            foreach (var result in SetEdit.PossibleResults)
+            questionsList = new BindingList<Question>(SetEdit.Questions);
+            dgvQuestions.DataSource = questionsList;
+
+            // dgvResult
+            DataGridViewTextBoxColumn colResut = new DataGridViewTextBoxColumn()
             {
-                lstvwResults.Items.Add(result.Name);
-            }       
+                CellTemplate = cell,
+                Name = "Result",
+                HeaderText = "Ergebnis",
+                DataPropertyName = "Name",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+                ReadOnly = true
+            };
+            DataGridViewTextBoxColumn colMin= new DataGridViewTextBoxColumn()
+            {
+                CellTemplate = cell,
+                Name = "Min",
+                HeaderText = "Minimum",
+                DataPropertyName = "Min",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+                ReadOnly = true
+            };
+            DataGridViewTextBoxColumn colMax = new DataGridViewTextBoxColumn()
+            {
+                CellTemplate = cell,
+                Name = "Max",
+                HeaderText = "Maximum",
+                DataPropertyName = "Max",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+                ReadOnly = true
+            };
+            dgvResults.AllowUserToAddRows = false;
+            dgvResults.Columns.Add(colResut);
+            dgvResults.Columns.Add(colMin);
+            dgvResults.Columns.Add(colMax);
+            resultsList = new BindingList<Result>(SetEdit.PossibleResults);
+            dgvResults.DataSource = resultsList;
+
         }
 
         #region Properties
 
         public RuleSet SetEdit { get; set; }
-        
+        private BindingList<Question> QuestionsList
+        {
+            get
+            {
+                return questionsList;
+            }
+
+        }
+        private BindingList<Result> ResulstList
+        {
+            get
+            {
+                return resultsList;
+            }
+
+        }
+
+
 
         #endregion Properties
 
 
         private void btnNewQuestion_Click(object sender, EventArgs e)
         {
-            frmQuestion frmQuestionNew = new frmQuestion(new Question());
+            Question questionNew = new Question();
+            frmQuestion frmQuestionNew = new frmQuestion(questionNew);
             if (frmQuestionNew.ShowDialog() == DialogResult.OK)
             {
-
+                QuestionsList.Add(questionNew);
             }
         }
     }
