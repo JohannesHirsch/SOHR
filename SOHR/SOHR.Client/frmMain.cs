@@ -41,12 +41,7 @@ namespace SOHR.Client
                 MessageBox.Show(ex.Message);
             }
 
-            var headers = remoteClientService.LoadRuleSetHeaders();
-
-            foreach (var header in headers)
-            {
-                cbxHeaders.Items.Add(header);
-            }
+            UpdateHeaders();
         }
 
         private void btnEditRuleSet_Click(object sender, EventArgs e)
@@ -56,11 +51,10 @@ namespace SOHR.Client
             frmRuleSet frmRuleSetEdit = new frmRuleSet(set);                        
             if(frmRuleSetEdit.ShowDialog() == DialogResult.OK)
             {
-
+                
             }
 
-            //Event zum Aktualisieren der Header feuern
-
+            UpdateHeaders();
         }
 
         private void btnStartQuestioning_Click(object sender, EventArgs e)
@@ -71,7 +65,7 @@ namespace SOHR.Client
         private void btnNewRuleSet_Click(object sender, EventArgs e)
         {
 
-            //Event zum Aktualisieren der Header feuern
+            UpdateHeaders();
         }
 
         private void btnDeleteRuleSet_Click(object sender, EventArgs e)
@@ -79,7 +73,17 @@ namespace SOHR.Client
             var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
             remoteClientService.DeleteRuleSet(set.ID);
 
-            //Event zum Aktualisieren der Header feuern
+            UpdateHeaders();
+        }
+
+        private void UpdateHeaders()
+        {
+            var headers = remoteClientService.LoadRuleSetHeaders();
+
+            foreach (var header in headers)
+            {
+                cbxHeaders.Items.Add(header);
+            }
         }
     }
 }

@@ -7,6 +7,7 @@
 
 using SOHR.Shared;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,7 +24,6 @@ namespace SOHR.Client
     /// </summary>
     public partial class frmRuleSet : Form
     {
-        RuleSet ruleSet;
 
         public frmRuleSet()
         {
@@ -32,13 +32,35 @@ namespace SOHR.Client
         public frmRuleSet(RuleSet set)
         {            
             InitializeComponent();
-            ruleSet = set;
-            tbxRuleSetName.Text = ruleSet.Name;
-            tbxComment.Text = ruleSet.Comment;
+            SetEdit = set;
+            tbxRuleSetName.Text = SetEdit.Name;
+            tbxComment.Text = SetEdit.Comment;
 
-            foreach (var question in ruleSet.Questions)
+            foreach (var question in SetEdit.Questions)
             {
                 lstvwQuestions.Items.Add(question.Name);
+            }
+
+            foreach (var result in SetEdit.PossibleResults)
+            {
+                lstvwResults.Items.Add(result.Name);
+            }       
+        }
+
+        #region Properties
+
+        public RuleSet SetEdit { get; set; }
+        
+
+        #endregion Properties
+
+
+        private void btnNewQuestion_Click(object sender, EventArgs e)
+        {
+            frmQuestion frmQuestionNew = new frmQuestion(new Question());
+            if (frmQuestionNew.ShowDialog() == DialogResult.OK)
+            {
+
             }
         }
     }

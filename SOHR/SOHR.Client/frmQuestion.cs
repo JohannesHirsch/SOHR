@@ -5,6 +5,7 @@
 // Comment: Frage-CodeBehind
 //***********************************************************//
 
+using SOHR.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,9 +23,18 @@ namespace SOHR.Client
     /// </summary>
     public partial class frmQuestion : Form
     {
-        public frmQuestion()
+        public frmQuestion(Question question)
         {
             InitializeComponent();
+
+            questionEdit = question;
         }
+
+        #region Properties
+
+        public Question questionEdit { get; set; }
+
+        #endregion Properties
+
     }
 }

@@ -52,6 +52,10 @@ namespace SOHR.Shared
         #endregion PRIVATE METHODS
 
         #region PUBLIC METHODS
+        public override string ToString()
+        {
+            return Name;
+        }
         #endregion // PUBLIC METHODS
     }
 }

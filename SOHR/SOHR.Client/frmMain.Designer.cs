@@ -33,6 +33,7 @@
             this.btnNewRuleSet = new System.Windows.Forms.Button();
             this.btnEditRuleSet = new System.Windows.Forms.Button();
             this.btnDeleteRuleSet = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbxHeaders
@@ -45,7 +46,7 @@
             // 
             // btnStartQuestioning
             // 
-            this.btnStartQuestioning.Location = new System.Drawing.Point(235, 10);
+            this.btnStartQuestioning.Location = new System.Drawing.Point(235, 41);
             this.btnStartQuestioning.Name = "btnStartQuestioning";
             this.btnStartQuestioning.Size = new System.Drawing.Size(143, 23);
             this.btnStartQuestioning.TabIndex = 1;
@@ -55,7 +56,7 @@
             // 
             // btnNewRuleSet
             // 
-            this.btnNewRuleSet.Location = new System.Drawing.Point(235, 39);
+            this.btnNewRuleSet.Location = new System.Drawing.Point(235, 70);
             this.btnNewRuleSet.Name = "btnNewRuleSet";
             this.btnNewRuleSet.Size = new System.Drawing.Size(143, 23);
             this.btnNewRuleSet.TabIndex = 1;
@@ -65,7 +66,7 @@
             // 
             // btnEditRuleSet
             // 
-            this.btnEditRuleSet.Location = new System.Drawing.Point(235, 68);
+            this.btnEditRuleSet.Location = new System.Drawing.Point(235, 99);
             this.btnEditRuleSet.Name = "btnEditRuleSet";
             this.btnEditRuleSet.Size = new System.Drawing.Size(143, 23);
             this.btnEditRuleSet.TabIndex = 1;
@@ -75,7 +76,7 @@
             // 
             // btnDeleteRuleSet
             // 
-            this.btnDeleteRuleSet.Location = new System.Drawing.Point(235, 97);
+            this.btnDeleteRuleSet.Location = new System.Drawing.Point(235, 128);
             this.btnDeleteRuleSet.Name = "btnDeleteRuleSet";
             this.btnDeleteRuleSet.Size = new System.Drawing.Size(143, 23);
             this.btnDeleteRuleSet.TabIndex = 1;
@@ -83,14 +84,25 @@
             this.btnDeleteRuleSet.UseVisualStyleBackColor = true;
             this.btnDeleteRuleSet.Click += new System.EventHandler(this.btnDeleteRuleSet_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(235, 13);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(143, 23);
+            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnStartQuestioning_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 134);
+            this.ClientSize = new System.Drawing.Size(410, 180);
             this.Controls.Add(this.btnDeleteRuleSet);
             this.Controls.Add(this.btnEditRuleSet);
             this.Controls.Add(this.btnNewRuleSet);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnStartQuestioning);
             this.Controls.Add(this.cbxHeaders);
             this.Name = "frmMain";
@@ -106,6 +118,7 @@
         private System.Windows.Forms.Button btnNewRuleSet;
         private System.Windows.Forms.Button btnEditRuleSet;
         private System.Windows.Forms.Button btnDeleteRuleSet;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
 

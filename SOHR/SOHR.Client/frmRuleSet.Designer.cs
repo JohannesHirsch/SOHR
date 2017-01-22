@@ -56,6 +56,7 @@
             this.lstvwQuestions.GridLines = true;
             this.lstvwQuestions.LabelWrap = false;
             this.lstvwQuestions.Location = new System.Drawing.Point(13, 89);
+            this.lstvwQuestions.MultiSelect = false;
             this.lstvwQuestions.Name = "lstvwQuestions";
             this.lstvwQuestions.Size = new System.Drawing.Size(748, 229);
             this.lstvwQuestions.TabIndex = 1;
@@ -79,6 +80,7 @@
             this.btnNewQuestion.TabIndex = 2;
             this.btnNewQuestion.Text = "Neue Frage";
             this.btnNewQuestion.UseVisualStyleBackColor = true;
+            this.btnNewQuestion.Click += new System.EventHandler(this.btnNewQuestion_Click);
             // 
             // btnEditQuestion
             // 
