@@ -54,9 +54,14 @@ namespace SOHR.Client
             frmRuleSet frmRuleSetEdit = new frmRuleSet(set);                        
             if(frmRuleSetEdit.ShowDialog() == DialogResult.OK)
             {
-                
+                remoteClientService.SaveRuleSet(frmRuleSetEdit.SetEdit);
             }
 
+            UpdateHeaders();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
             UpdateHeaders();
         }
 
@@ -92,10 +97,16 @@ namespace SOHR.Client
         {
             var headers = remoteClientService.LoadRuleSetHeaders();
 
+            cbxHeaders.Items.Clear();
             foreach (var header in headers)
             {
                 cbxHeaders.Items.Add(header);
             }
+            if (cbxHeaders.Items.Count > 0)
+            {
+                cbxHeaders.SelectedIndex = 0;
+            }
+            
         }
 
         private void cbxHeaders_TextChanged(object sender, EventArgs e)
@@ -104,5 +115,7 @@ namespace SOHR.Client
             btnEditRuleSet.Enabled = true;
             btnStartQuestioning.Enabled = true;
         }
+
+
     }
 }

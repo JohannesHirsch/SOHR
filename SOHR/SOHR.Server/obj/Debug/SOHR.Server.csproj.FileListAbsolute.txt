@@ -6,3 +6,11 @@ C:\GitHub\SOHR\SOHR\SOHR.Server\obj\Debug\SOHR.Server.exe
 C:\GitHub\SOHR\SOHR\SOHR.Server\obj\Debug\SOHR.Server.pdb
 C:\GitHub\SOHR\SOHR\SOHR.Server\bin\Debug\SOHR.Shared.dll
 C:\GitHub\SOHR\SOHR\SOHR.Server\bin\Debug\SOHR.Shared.pdb
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Server\bin\Debug\SOHR.Server.exe.config
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Server\obj\Debug\SOHR.Server.exe
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Server\obj\Debug\SOHR.Server.pdb
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Server\bin\Debug\SOHR.Server.exe
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Server\bin\Debug\SOHR.Server.pdb
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Server\bin\Debug\SOHR.Shared.dll
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Server\bin\Debug\SOHR.Shared.pdb
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Server\obj\Debug\SOHR.Server.csprojResolveAssemblyReference.cache

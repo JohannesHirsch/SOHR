@@ -194,6 +194,12 @@ namespace SOHR.Server
             {
                 file = Files.Where(f => f.RuleSet.ID == set.ID).First();
                 System.IO.File.Delete(file.Path);
+
+                //edit Hofer
+                //Wird beim bearbeiten eines Fragensatzes benötigt, sonst wird alter Satz gespechert!
+                file = new File() { RuleSet = set };
+                //endedit
+
                 file.Path = String.Format(@"RuleSets\{0}.csv", set.Name);
             }
             else
@@ -242,6 +248,13 @@ namespace SOHR.Server
                 countResult++;
             }
             streamWriter.Close();
+
+            //edit Hofer
+
+            //Nach bearbeiten alles wieder einlesen, damit Files aktuell sind!
+            //Funktioniert, aber keine perfekte Lösung da langsam!!!!
+            this.LoadFiles();
+            //endedit
         }
 
         public void DeleteRuleSet(Guid ID)

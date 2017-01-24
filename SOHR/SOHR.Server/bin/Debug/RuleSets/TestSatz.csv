@@ -2,12 +2,12 @@ Achtung;Dies ist eine automatisch generierte Datei. Manuelle Änderungen können
 
 Name;TestSatz
 ID;41db2b7e-b5f6-4730-8701-cb32e1b42100
-Letzte Änderung;04.01.2017 11:48:29
+Letzte Änderung;24.01.2017 10:40:09
 Kommentar;Sinnloser Testsatz
-Fragen;2
+Fragen;5
 Mögliche Ergebnisse;2
 Min;0
-Max;70
+Max;220
 
 Fragen
 Frage 1;Antwortmöglichkeiten;2
@@ -21,6 +21,24 @@ ID;476f2ebd-9f73-4c6c-8c35-cb655b0de873
 Was sind die zentralen Eigenschaften einer guten F�hrungskraft?
 zuverl�ssig;20
 nett;15
+
+Frage 3;Antwortmöglichkeiten;2
+ID;5b13a0c6-a41a-45e4-9924-caeb55176780
+Testfrage
+Ja;50
+Nein;10
+
+Frage 4;Antwortmöglichkeiten;2
+ID;564ecb63-da58-4571-8dfe-b75c3e82d70f
+Testfrage2
+Ja;50
+Nein;10
+
+Frage 5;Antwortmöglichkeiten;2
+ID;114cdc2c-b337-4f7c-bf15-215a492d5c25
+Testfrage3
+Ja;50
+Nein;10
 
 Ergebnisse
 Ergebnis;1

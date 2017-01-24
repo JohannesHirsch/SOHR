@@ -128,5 +128,9 @@ namespace SOHR.Client
                 QuestionsList.Add(questionNew);
             }
         }
+
+        private void frmRuleSet_FormClosing(object sender, FormClosingEventArgs e)
+        {
+        }
     }
 }

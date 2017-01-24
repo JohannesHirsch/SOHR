@@ -39,17 +39,19 @@
             // cbxHeaders
             // 
             this.cbxHeaders.FormattingEnabled = true;
-            this.cbxHeaders.Location = new System.Drawing.Point(13, 13);
+            this.cbxHeaders.Location = new System.Drawing.Point(17, 16);
+            this.cbxHeaders.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxHeaders.Name = "cbxHeaders";
-            this.cbxHeaders.Size = new System.Drawing.Size(193, 21);
+            this.cbxHeaders.Size = new System.Drawing.Size(256, 24);
             this.cbxHeaders.TabIndex = 0;
             this.cbxHeaders.TextChanged += new System.EventHandler(this.cbxHeaders_TextChanged);
             // 
             // btnStartQuestioning
             // 
-            this.btnStartQuestioning.Location = new System.Drawing.Point(235, 41);
+            this.btnStartQuestioning.Location = new System.Drawing.Point(313, 50);
+            this.btnStartQuestioning.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStartQuestioning.Name = "btnStartQuestioning";
-            this.btnStartQuestioning.Size = new System.Drawing.Size(143, 23);
+            this.btnStartQuestioning.Size = new System.Drawing.Size(191, 28);
             this.btnStartQuestioning.TabIndex = 1;
             this.btnStartQuestioning.Text = "Befragung starten";
             this.btnStartQuestioning.UseVisualStyleBackColor = true;
@@ -57,9 +59,10 @@
             // 
             // btnNewRuleSet
             // 
-            this.btnNewRuleSet.Location = new System.Drawing.Point(235, 70);
+            this.btnNewRuleSet.Location = new System.Drawing.Point(313, 86);
+            this.btnNewRuleSet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNewRuleSet.Name = "btnNewRuleSet";
-            this.btnNewRuleSet.Size = new System.Drawing.Size(143, 23);
+            this.btnNewRuleSet.Size = new System.Drawing.Size(191, 28);
             this.btnNewRuleSet.TabIndex = 1;
             this.btnNewRuleSet.Text = "Neuer Fragensatz";
             this.btnNewRuleSet.UseVisualStyleBackColor = true;
@@ -67,9 +70,10 @@
             // 
             // btnEditRuleSet
             // 
-            this.btnEditRuleSet.Location = new System.Drawing.Point(235, 99);
+            this.btnEditRuleSet.Location = new System.Drawing.Point(313, 122);
+            this.btnEditRuleSet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditRuleSet.Name = "btnEditRuleSet";
-            this.btnEditRuleSet.Size = new System.Drawing.Size(143, 23);
+            this.btnEditRuleSet.Size = new System.Drawing.Size(191, 28);
             this.btnEditRuleSet.TabIndex = 1;
             this.btnEditRuleSet.Text = "Fragensatz bearbeiten";
             this.btnEditRuleSet.UseVisualStyleBackColor = true;
@@ -77,9 +81,10 @@
             // 
             // btnDeleteRuleSet
             // 
-            this.btnDeleteRuleSet.Location = new System.Drawing.Point(235, 128);
+            this.btnDeleteRuleSet.Location = new System.Drawing.Point(313, 158);
+            this.btnDeleteRuleSet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteRuleSet.Name = "btnDeleteRuleSet";
-            this.btnDeleteRuleSet.Size = new System.Drawing.Size(143, 23);
+            this.btnDeleteRuleSet.Size = new System.Drawing.Size(191, 28);
             this.btnDeleteRuleSet.TabIndex = 1;
             this.btnDeleteRuleSet.Text = "Fragensatz löschen";
             this.btnDeleteRuleSet.UseVisualStyleBackColor = true;
@@ -87,25 +92,27 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(235, 13);
+            this.btnUpdate.Location = new System.Drawing.Point(313, 16);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(143, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(191, 28);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnStartQuestioning_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 180);
+            this.ClientSize = new System.Drawing.Size(547, 222);
             this.Controls.Add(this.btnDeleteRuleSet);
             this.Controls.Add(this.btnEditRuleSet);
             this.Controls.Add(this.btnNewRuleSet);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnStartQuestioning);
             this.Controls.Add(this.cbxHeaders);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMain";
             this.Text = "SOHR";
             this.ResumeLayout(false);

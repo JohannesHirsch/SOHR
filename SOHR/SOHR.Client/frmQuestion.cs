@@ -64,6 +64,7 @@ namespace SOHR.Client
         {
             if (!String.IsNullOrEmpty(tbxQuestion.Text) && dgvAnswers.RowCount > 2)
             {
+                this.Question.Name = this.tbxQuestion.Text;
                 DialogResult = DialogResult.OK;
             }
         }
