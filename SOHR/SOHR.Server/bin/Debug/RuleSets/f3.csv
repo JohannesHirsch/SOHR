@@ -1,0 +1,24 @@
+Achtung;Dies ist eine automatisch generierte Datei. Manuelle Änderungen können zu einem Fehlverhalten führen.
+
+Name;f3
+ID;cf5f1e9d-6a90-4eae-b5e2-7c4adae9517b
+Letzte Änderung;24.01.2017 14:21:36
+Kommentar;
+Fragen;1
+Mögliche Ergebnisse;1
+Min;-100
+Max;100
+
+Fragen
+Frage 1;Antwortmöglichkeiten;2
+ID;51d90a32-687b-4830-b674-00c3b07585c6
+f1
+a1;-100
+a2;100
+
+Ergebnisse
+Ergebnis;1
+e1
+Min;-100
+Max;100
+

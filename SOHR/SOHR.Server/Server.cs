@@ -161,10 +161,14 @@ namespace SOHR.Server
             Console.WriteLine("{0} Regelsätze geladen.", counter);
         }
 
+        #endregion PRIVATE METHODS
+
+        #region PUBLIC METHODS
         #region IClientService
 
         public ObservableCollection<Header> LoadRuleSetHeaders()
         {
+            LoadFiles();
             Headers.Clear();
             int counter = 0;
             foreach (var file in Files)
@@ -183,8 +187,8 @@ namespace SOHR.Server
             return set;
         }
 
-        
-       
+
+
         public void SaveRuleSet(RuleSet set)
         {
             File file;
@@ -248,13 +252,9 @@ namespace SOHR.Server
                 countResult++;
             }
             streamWriter.Close();
-
-            //edit Hofer
-
-            //Nach bearbeiten alles wieder einlesen, damit Files aktuell sind!
-            //Funktioniert, aber keine perfekte Lösung da langsam!!!!
+            Console.WriteLine("Satz {0} gespeichert.", set.Name);
             this.LoadFiles();
-            //endedit
+            
         }
 
         public void DeleteRuleSet(Guid ID)
@@ -264,10 +264,6 @@ namespace SOHR.Server
             Files.Remove(file);
         }
         #endregion  IClientService
-
-        #endregion PRIVATE METHODS
-
-        #region PUBLIC METHODS
         #endregion // PUBLIC METHODS
     }
 }

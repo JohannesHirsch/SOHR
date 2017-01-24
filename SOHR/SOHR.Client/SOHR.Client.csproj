@@ -66,12 +66,6 @@
     <Compile Include="frmQuestioning.Designer.cs">
       <DependentUpon>frmQuestioning.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmResult.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmResult.Designer.cs">
-      <DependentUpon>frmResult.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmRuleSet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,8 +80,8 @@
     <EmbeddedResource Include="frmQuestion.resx">
       <DependentUpon>frmQuestion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmResult.resx">
-      <DependentUpon>frmResult.cs</DependentUpon>
+    <EmbeddedResource Include="frmQuestioning.resx">
+      <DependentUpon>frmQuestioning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRuleSet.resx">
       <DependentUpon>frmRuleSet.cs</DependentUpon>

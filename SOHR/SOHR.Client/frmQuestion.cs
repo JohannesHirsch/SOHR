@@ -28,8 +28,38 @@ namespace SOHR.Client
             InitializeComponent();
 
             Question = question;
+            tbxQuestion.Text = question.Name;
 
-            // dgvResult
+            InitDataGridViews();            
+        }
+
+        public frmQuestion()
+        {
+            InitializeComponent();
+
+            Question = new Question();
+
+            InitDataGridViews();
+        }
+
+        #region Properties
+
+        public Question Question { get; set; }
+
+        #endregion Properties
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(tbxQuestion.Text) && dgvAnswers.RowCount > 2)
+            {
+                this.Question.Name = this.tbxQuestion.Text;
+                DialogResult = DialogResult.OK;
+            }
+        }
+
+        void InitDataGridViews()
+        {
+            // dgvAnswer
             DataGridViewCell cell = new DataGridViewTextBoxCell();
             DataGridViewTextBoxColumn colAnswer = new DataGridViewTextBoxColumn()
             {
@@ -47,26 +77,13 @@ namespace SOHR.Client
                 DataPropertyName = "Points",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
             };
-            
+            dgvAnswers.AutoGenerateColumns = false;
+
             dgvAnswers.Columns.Add(colAnswer);
             dgvAnswers.Columns.Add(colPoints);
+
             var answersList = new BindingList<Answer>(Question.PossibleAnswers);
             dgvAnswers.DataSource = answersList;
-        }
-
-        #region Properties
-
-        public Question Question { get; set; }
-
-        #endregion Properties
-
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(tbxQuestion.Text) && dgvAnswers.RowCount > 2)
-            {
-                this.Question.Name = this.tbxQuestion.Text;
-                DialogResult = DialogResult.OK;
-            }
         }
     }
 }

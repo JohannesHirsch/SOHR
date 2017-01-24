@@ -54,7 +54,7 @@ namespace SOHR.Client
             frmRuleSet frmRuleSetEdit = new frmRuleSet(set);                        
             if(frmRuleSetEdit.ShowDialog() == DialogResult.OK)
             {
-                remoteClientService.SaveRuleSet(frmRuleSetEdit.SetEdit);
+                remoteClientService.SaveRuleSet(frmRuleSetEdit.RuleSet);
             }
 
             UpdateHeaders();
@@ -69,18 +69,15 @@ namespace SOHR.Client
         {
             var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
             frmQuestioning frmquestioning = new frmQuestioning(set);
-            if (frmquestioning.ShowDialog() == DialogResult.OK)
-            {
-
-            }
+            frmquestioning.ShowDialog();
         }
 
         private void btnNewRuleSet_Click(object sender, EventArgs e)
         {
-            frmRuleSet frmRuleSetENew = new frmRuleSet();
-            if (frmRuleSetENew.ShowDialog() == DialogResult.OK)
+            frmRuleSet frmRuleSetNew = new frmRuleSet();
+            if (frmRuleSetNew.ShowDialog() == DialogResult.OK)
             {
-
+                remoteClientService.SaveRuleSet(frmRuleSetNew.RuleSet);
             }
             UpdateHeaders();
         }
