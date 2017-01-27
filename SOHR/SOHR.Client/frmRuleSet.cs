@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+//using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -245,10 +245,10 @@ namespace SOHR.Client
 
             dgvResults.DataSource = resultsList;
         }
-        void UpdateBounds()
+        new void UpdateBounds()
         {
             tbxMin.Text = RuleSet.PossibleMin.ToString();
             tbxMax.Text = RuleSet.PossibleMax.ToString();
-        } 
+        }
     }
 }

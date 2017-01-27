@@ -14,8 +14,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.ServiceModel; // for WCF - need Verweis
-using SOHR.Shared.Contracts; // for remote methods 
+using System.ServiceModel;
+using SOHR.Shared.Contracts;
 using SOHR.Shared;
 
 namespace SOHR.Client
@@ -46,7 +46,6 @@ namespace SOHR.Client
 
             UpdateHeaders();
         }
-
         private void btnEditRuleSet_Click(object sender, EventArgs e)
         {
             var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
