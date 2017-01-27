@@ -32,6 +32,7 @@ namespace SOHR.Client
             InitializeComponent();            
             RuleSet = new RuleSet();
             InitForm();
+            UpdateBounds();
         }
         public frmRuleSet(RuleSet set)
         {            
@@ -40,6 +41,7 @@ namespace SOHR.Client
             tbxRuleSetName.Text = RuleSet.Name;
             tbxComment.Text = RuleSet.Comment;
             InitForm();
+            UpdateBounds();
         }
 
         #region Properties
@@ -73,6 +75,7 @@ namespace SOHR.Client
             if (frmQuestionNew.ShowDialog() == DialogResult.OK)
             {
                 QuestionsList.Add(frmQuestionNew.Question);
+                UpdateBounds();
             }
         }
 
@@ -87,6 +90,7 @@ namespace SOHR.Client
                 {
                     QuestionsList.Remove(questionEdit);
                     QuestionsList.Add(frmQuestionEdit.Question);
+                    UpdateBounds();
                 }
             }
         }
@@ -170,6 +174,7 @@ namespace SOHR.Client
         {
             int selectedIndex = dgvQuestions.SelectedCells[0].RowIndex;
             QuestionsList.Remove(QuestionsList[selectedIndex]);
+            UpdateBounds();
         }
 
         private void btnDeleteResult_Click(object sender, EventArgs e)
@@ -181,8 +186,7 @@ namespace SOHR.Client
         void InitForm()
         {
             questionsList = new BindingList<Question>();
-            tbxMin.Text = RuleSet.PossibleMin.ToString();
-            tbxMax.Text = RuleSet.PossibleMax.ToString();
+            
             DataGridViewCell cell = new DataGridViewTextBoxCell();
             // dgvQuestion
             DataGridViewTextBoxColumn colQuestion = new DataGridViewTextBoxColumn()
@@ -240,6 +244,11 @@ namespace SOHR.Client
             resultsList = new BindingList<Result>(RuleSet.PossibleResults);
 
             dgvResults.DataSource = resultsList;
-        }       
+        }
+        void UpdateBounds()
+        {
+            tbxMin.Text = RuleSet.PossibleMin.ToString();
+            tbxMax.Text = RuleSet.PossibleMax.ToString();
+        } 
     }
 }
