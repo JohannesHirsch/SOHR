@@ -48,16 +48,25 @@ namespace SOHR.Client
         }
         private void btnEditRuleSet_Click(object sender, EventArgs e)
         {
-            var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
+            try
+            { 
+                var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
 
-            frmRuleSet frmRuleSetEdit = new frmRuleSet(set);                        
-            if(frmRuleSetEdit.ShowDialog() == DialogResult.OK)
-            {
-                remoteClientService.SaveRuleSet(frmRuleSetEdit.RuleSet);
+                frmRuleSet frmRuleSetEdit = new frmRuleSet(set);                        
+                if(frmRuleSetEdit.ShowDialog() == DialogResult.OK)
+                {
+                    remoteClientService.SaveRuleSet(frmRuleSetEdit.RuleSet);
+                }
+
+                UpdateHeaders();
             }
+            catch (Exception)
+            {
 
-            UpdateHeaders();
-        }
+                MessageBox.Show("Fragensatz konnte nicht geladen werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
+
+            }
+}
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -66,42 +75,82 @@ namespace SOHR.Client
 
         private void btnStartQuestioning_Click(object sender, EventArgs e)
         {
-            var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
-            frmQuestioning frmquestioning = new frmQuestioning(set);
-            frmquestioning.ShowDialog();
+            try
+            {
+                var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
+                frmQuestioning frmquestioning = new frmQuestioning(set);
+                frmquestioning.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Fragensatz konnte nicht geladen werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
+
+            }
+
         }
 
         private void btnNewRuleSet_Click(object sender, EventArgs e)
         {
-            frmRuleSet frmRuleSetNew = new frmRuleSet();
-            if (frmRuleSetNew.ShowDialog() == DialogResult.OK)
+            try
             {
-                remoteClientService.SaveRuleSet(frmRuleSetNew.RuleSet);
+                frmRuleSet frmRuleSetNew = new frmRuleSet();
+                if (frmRuleSetNew.ShowDialog() == DialogResult.OK)
+                {
+                    remoteClientService.SaveRuleSet(frmRuleSetNew.RuleSet);
+                }
+                UpdateHeaders();
             }
-            UpdateHeaders();
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Fragensatz konnte nicht gespeichert werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
+
+            }
+
         }
 
         private void btnDeleteRuleSet_Click(object sender, EventArgs e)
         {
-            var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
-            remoteClientService.DeleteRuleSet(set.ID);
+            try
+            {
+                var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
+                remoteClientService.DeleteRuleSet(set.ID);
+                UpdateHeaders();
+            }
+            catch (Exception ex)
+            {
 
-            UpdateHeaders();
+                MessageBox.Show("Fragensatz konnte nicht gelöscht werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
+
+            }
+
+
+            
         }
 
         private void UpdateHeaders()
         {
-            var headers = remoteClientService.LoadRuleSetHeaders();
+            try
+            {
+                var headers = remoteClientService.LoadRuleSetHeaders();
 
-            cbxHeaders.Items.Clear();
-            foreach (var header in headers)
-            {
-                cbxHeaders.Items.Add(header);
+                cbxHeaders.Items.Clear();
+                foreach (var header in headers)
+                {
+                    cbxHeaders.Items.Add(header);
+                }
+                if (cbxHeaders.Items.Count > 0)
+                {
+                    cbxHeaders.SelectedIndex = 0;
+                }
             }
-            if (cbxHeaders.Items.Count > 0)
+            catch (Exception ex)
             {
-                cbxHeaders.SelectedIndex = 0;
+
+                MessageBox.Show("Header konnten nicht geladen werden.\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
             }
+
             
         }
 

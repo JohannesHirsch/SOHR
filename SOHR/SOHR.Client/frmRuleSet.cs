@@ -122,6 +122,16 @@ namespace SOHR.Client
                     MessageBox.Show(String.Format("Fehler bei Ergebnis {0}: Maximum kleiner Minimum", result.Name));
                     allValid = false;
                 }
+                if (allValid && questionsList.Count <2)
+                {
+                    MessageBox.Show(String.Format("Mindestanzahl von Fragen = 2"));
+                    allValid = false;
+                }
+                if (allValid && resultsList.Count <2)
+                {
+                    MessageBox.Show(String.Format("Mindestanzahl von Antworten = 2"));
+                    allValid = false;
+                }
                 lowerBoundValid = false;
                 upperBoundValid = false;
                 foreach (var resultTemp in RuleSet.PossibleResults)
@@ -172,9 +182,12 @@ namespace SOHR.Client
 
         private void btnDeleteQuestion_Click(object sender, EventArgs e)
         {
-            int selectedIndex = dgvQuestions.SelectedCells[0].RowIndex;
-            QuestionsList.Remove(QuestionsList[selectedIndex]);
-            UpdateBounds();
+            if (dgvQuestions.SelectedCells.Count > 0)
+            {
+                int selectedIndex = dgvQuestions.SelectedCells[0].RowIndex;
+                QuestionsList.Remove(QuestionsList[selectedIndex]);
+                UpdateBounds();
+            }
         }
 
         private void btnDeleteResult_Click(object sender, EventArgs e)
