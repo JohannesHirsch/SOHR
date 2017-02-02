@@ -16,6 +16,7 @@ using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SOHR.Client
 {
@@ -29,19 +30,31 @@ namespace SOHR.Client
 
         public frmRuleSet()
         {
-            InitializeComponent();            
+
+
+            InitializeComponent();
+
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             RuleSet = new RuleSet();
             InitForm();
             UpdateBounds();
         }
+
         public frmRuleSet(RuleSet set)
-        {            
-            InitializeComponent();
-            RuleSet = set;
-            tbxRuleSetName.Text = RuleSet.Name;
-            tbxComment.Text = RuleSet.Comment;
-            InitForm();
-            UpdateBounds();
+        {
+                InitializeComponent();
+                this.MinimumSize = this.Size;
+                this.MaximumSize = this.Size;
+                this.MaximizeBox = false;
+                this.MinimizeBox = false;
+                RuleSet = set;
+                tbxRuleSetName.Text = RuleSet.Name;
+                tbxComment.Text = RuleSet.Comment;
+                InitForm();
+                UpdateBounds();
         }
 
         #region Properties
@@ -170,7 +183,27 @@ namespace SOHR.Client
                 MessageBox.Show("Name vergeben");
                 allValid = false;
             }
+            if (allValid && !String.IsNullOrWhiteSpace(tbxRuleSetName.Text))
+            {
+                //MessageBox.Show("Name vergeben");
+                //allValid = false;
+                char[] invChar = Path.GetInvalidFileNameChars();
 
+                for (int i = 0; i < tbxRuleSetName.Text.Length; i++)
+                {
+                    for (int j = 0; j < invChar.Length; j++)
+                    {
+                        if (tbxRuleSetName.Text[i]== invChar[j])
+                        {
+                            MessageBox.Show("Name enthält ungültige Zeichen");
+                            allValid = false;
+                        }
+                    }
+                    
+                }
+            }
+
+            
 
             if (allValid)//!String.IsNullOrWhiteSpace(tbxRuleSetName.Text) && RuleSet.Questions.Count > 0 && RuleSet.PossibleResults.Count > 0)
             {
@@ -258,10 +291,16 @@ namespace SOHR.Client
 
             dgvResults.DataSource = resultsList;
         }
+
         new void UpdateBounds()
         {
             tbxMin.Text = RuleSet.PossibleMin.ToString();
             tbxMax.Text = RuleSet.PossibleMax.ToString();
+        }
+
+        private void dgvResults_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Falscher Wertebereich.\nEs dürfen nur Ganzzahlen eingegeben werden!");
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRuleSet));
             this.tbxRuleSetName = new System.Windows.Forms.TextBox();
             this.btnNewQuestion = new System.Windows.Forms.Button();
             this.btnEditQuestion = new System.Windows.Forms.Button();
@@ -49,16 +50,18 @@
             // 
             // tbxRuleSetName
             // 
-            this.tbxRuleSetName.Location = new System.Drawing.Point(78, 12);
+            this.tbxRuleSetName.Location = new System.Drawing.Point(104, 15);
+            this.tbxRuleSetName.Margin = new System.Windows.Forms.Padding(4);
             this.tbxRuleSetName.Name = "tbxRuleSetName";
-            this.tbxRuleSetName.Size = new System.Drawing.Size(683, 20);
+            this.tbxRuleSetName.Size = new System.Drawing.Size(909, 22);
             this.tbxRuleSetName.TabIndex = 0;
             // 
             // btnNewQuestion
             // 
-            this.btnNewQuestion.Location = new System.Drawing.Point(767, 88);
+            this.btnNewQuestion.Location = new System.Drawing.Point(1023, 108);
+            this.btnNewQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewQuestion.Name = "btnNewQuestion";
-            this.btnNewQuestion.Size = new System.Drawing.Size(111, 23);
+            this.btnNewQuestion.Size = new System.Drawing.Size(148, 28);
             this.btnNewQuestion.TabIndex = 2;
             this.btnNewQuestion.Text = "Neue Frage";
             this.btnNewQuestion.UseVisualStyleBackColor = true;
@@ -66,9 +69,10 @@
             // 
             // btnEditQuestion
             // 
-            this.btnEditQuestion.Location = new System.Drawing.Point(767, 117);
+            this.btnEditQuestion.Location = new System.Drawing.Point(1023, 144);
+            this.btnEditQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditQuestion.Name = "btnEditQuestion";
-            this.btnEditQuestion.Size = new System.Drawing.Size(111, 23);
+            this.btnEditQuestion.Size = new System.Drawing.Size(148, 28);
             this.btnEditQuestion.TabIndex = 2;
             this.btnEditQuestion.Text = "Frage bearbeiten";
             this.btnEditQuestion.UseVisualStyleBackColor = true;
@@ -76,9 +80,10 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(803, 591);
+            this.btnOK.Location = new System.Drawing.Point(1071, 727);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(100, 28);
             this.btnOK.TabIndex = 3;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -87,59 +92,67 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(722, 591);
+            this.btnCancel.Location = new System.Drawing.Point(963, 727);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Abbrechen";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // tbxComment
             // 
-            this.tbxComment.Location = new System.Drawing.Point(78, 39);
+            this.tbxComment.Location = new System.Drawing.Point(104, 48);
+            this.tbxComment.Margin = new System.Windows.Forms.Padding(4);
             this.tbxComment.Name = "tbxComment";
-            this.tbxComment.Size = new System.Drawing.Size(682, 20);
+            this.tbxComment.Size = new System.Drawing.Size(908, 22);
             this.tbxComment.TabIndex = 0;
             // 
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(12, 15);
+            this.lbName.Location = new System.Drawing.Point(16, 18);
+            this.lbName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(35, 13);
+            this.lbName.Size = new System.Drawing.Size(45, 17);
             this.lbName.TabIndex = 4;
             this.lbName.Text = "Name";
             // 
             // lbComment
             // 
             this.lbComment.AutoSize = true;
-            this.lbComment.Location = new System.Drawing.Point(12, 42);
+            this.lbComment.Location = new System.Drawing.Point(16, 52);
+            this.lbComment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbComment.Name = "lbComment";
-            this.lbComment.Size = new System.Drawing.Size(60, 13);
+            this.lbComment.Size = new System.Drawing.Size(80, 17);
             this.lbComment.TabIndex = 4;
             this.lbComment.Text = "Kommentar";
             // 
             // dgvQuestions
             // 
             this.dgvQuestions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvQuestions.Location = new System.Drawing.Point(13, 88);
+            this.dgvQuestions.Location = new System.Drawing.Point(17, 108);
+            this.dgvQuestions.Margin = new System.Windows.Forms.Padding(4);
             this.dgvQuestions.Name = "dgvQuestions";
-            this.dgvQuestions.Size = new System.Drawing.Size(747, 238);
+            this.dgvQuestions.Size = new System.Drawing.Size(996, 293);
             this.dgvQuestions.TabIndex = 5;
             // 
             // dgvResults
             // 
             this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResults.Location = new System.Drawing.Point(13, 350);
+            this.dgvResults.Location = new System.Drawing.Point(17, 431);
+            this.dgvResults.Margin = new System.Windows.Forms.Padding(4);
             this.dgvResults.Name = "dgvResults";
-            this.dgvResults.Size = new System.Drawing.Size(747, 228);
+            this.dgvResults.Size = new System.Drawing.Size(996, 281);
             this.dgvResults.TabIndex = 5;
+            this.dgvResults.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvResults_DataError);
             // 
             // btnDeleteQuestion
             // 
-            this.btnDeleteQuestion.Location = new System.Drawing.Point(767, 146);
+            this.btnDeleteQuestion.Location = new System.Drawing.Point(1023, 180);
+            this.btnDeleteQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteQuestion.Name = "btnDeleteQuestion";
-            this.btnDeleteQuestion.Size = new System.Drawing.Size(111, 23);
+            this.btnDeleteQuestion.Size = new System.Drawing.Size(148, 28);
             this.btnDeleteQuestion.TabIndex = 2;
             this.btnDeleteQuestion.Text = "Frage löschen";
             this.btnDeleteQuestion.UseVisualStyleBackColor = true;
@@ -147,43 +160,47 @@
             // 
             // tbxMin
             // 
-            this.tbxMin.Location = new System.Drawing.Point(767, 366);
+            this.tbxMin.Location = new System.Drawing.Point(1023, 450);
+            this.tbxMin.Margin = new System.Windows.Forms.Padding(4);
             this.tbxMin.Name = "tbxMin";
             this.tbxMin.ReadOnly = true;
-            this.tbxMin.Size = new System.Drawing.Size(100, 20);
+            this.tbxMin.Size = new System.Drawing.Size(132, 22);
             this.tbxMin.TabIndex = 6;
             // 
             // tbxMax
             // 
-            this.tbxMax.Location = new System.Drawing.Point(769, 405);
+            this.tbxMax.Location = new System.Drawing.Point(1025, 498);
+            this.tbxMax.Margin = new System.Windows.Forms.Padding(4);
             this.tbxMax.Name = "tbxMax";
             this.tbxMax.ReadOnly = true;
-            this.tbxMax.Size = new System.Drawing.Size(100, 20);
+            this.tbxMax.Size = new System.Drawing.Size(132, 22);
             this.tbxMax.TabIndex = 6;
             // 
             // lbMin
             // 
             this.lbMin.AutoSize = true;
-            this.lbMin.Location = new System.Drawing.Point(766, 350);
+            this.lbMin.Location = new System.Drawing.Point(1021, 431);
+            this.lbMin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMin.Name = "lbMin";
-            this.lbMin.Size = new System.Drawing.Size(99, 13);
+            this.lbMin.Size = new System.Drawing.Size(130, 17);
             this.lbMin.TabIndex = 7;
             this.lbMin.Text = "Mögliches Minimum";
             // 
             // lbMax
             // 
             this.lbMax.AutoSize = true;
-            this.lbMax.Location = new System.Drawing.Point(766, 389);
+            this.lbMax.Location = new System.Drawing.Point(1021, 479);
+            this.lbMax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMax.Name = "lbMax";
-            this.lbMax.Size = new System.Drawing.Size(102, 13);
+            this.lbMax.Size = new System.Drawing.Size(133, 17);
             this.lbMax.TabIndex = 7;
             this.lbMax.Text = "Mägliches Maximum";
             // 
             // frmRuleSet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 627);
+            this.ClientSize = new System.Drawing.Size(1192, 772);
             this.Controls.Add(this.lbMax);
             this.Controls.Add(this.lbMin);
             this.Controls.Add(this.tbxMax);
@@ -199,6 +216,8 @@
             this.Controls.Add(this.btnNewQuestion);
             this.Controls.Add(this.tbxComment);
             this.Controls.Add(this.tbxRuleSetName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRuleSet";
             this.Text = "Fragensatz";
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuestions)).EndInit();

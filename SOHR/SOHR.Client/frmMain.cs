@@ -30,26 +30,40 @@ namespace SOHR.Client
         public frmMain()
         {
             InitializeComponent();
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             btnDeleteRuleSet.Enabled = false;
             btnEditRuleSet.Enabled = false;
-            btnStartQuestioning.Enabled = false;            
+            btnStartQuestioning.Enabled = false;
 
+            CreateChannel();          
+
+            UpdateHeaders();
+        }
+
+        private void CreateChannel()
+        {
             try
             {
                 ChannelFactory<IClientService> channelFactory = new ChannelFactory<IClientService>("WSHttpBinding_IClientService");
                 remoteClientService = channelFactory.CreateChannel();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-            UpdateHeaders();
         }
+
         private void btnEditRuleSet_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
+                if (remoteClientService == null)
+                {
+                    CreateChannel();
+                }
                 var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
 
                 frmRuleSet frmRuleSetEdit = new frmRuleSet(set);                        
@@ -64,7 +78,7 @@ namespace SOHR.Client
             {
 
                 MessageBox.Show("Fragensatz konnte nicht geladen werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
-
+                remoteClientService = null;
             }
 }
 
@@ -77,6 +91,10 @@ namespace SOHR.Client
         {
             try
             {
+                if (remoteClientService == null)
+                {
+                    CreateChannel();
+                }
                 var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
                 frmQuestioning frmquestioning = new frmQuestioning(set);
                 frmquestioning.ShowDialog();
@@ -85,7 +103,7 @@ namespace SOHR.Client
             {
 
                 MessageBox.Show("Fragensatz konnte nicht geladen werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
-
+                remoteClientService = null;
             }
 
         }
@@ -94,6 +112,10 @@ namespace SOHR.Client
         {
             try
             {
+                if (remoteClientService == null)
+                {
+                    CreateChannel();
+                }
                 frmRuleSet frmRuleSetNew = new frmRuleSet();
                 if (frmRuleSetNew.ShowDialog() == DialogResult.OK)
                 {
@@ -105,7 +127,7 @@ namespace SOHR.Client
             {
 
                 MessageBox.Show("Fragensatz konnte nicht gespeichert werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
-
+                remoteClientService = null;
             }
 
         }
@@ -114,6 +136,10 @@ namespace SOHR.Client
         {
             try
             {
+                if (remoteClientService == null)
+                {
+                    CreateChannel();
+                }
                 var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
                 remoteClientService.DeleteRuleSet(set.ID);
                 UpdateHeaders();
@@ -122,7 +148,7 @@ namespace SOHR.Client
             {
 
                 MessageBox.Show("Fragensatz konnte nicht gelöscht werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
-
+                remoteClientService = null;
             }
 
 
@@ -133,6 +159,10 @@ namespace SOHR.Client
         {
             try
             {
+                if (remoteClientService == null)
+                {
+                    CreateChannel();
+                }
                 var headers = remoteClientService.LoadRuleSetHeaders();
 
                 cbxHeaders.Items.Clear();
@@ -149,6 +179,7 @@ namespace SOHR.Client
             {
 
                 MessageBox.Show("Header konnten nicht geladen werden.\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
+                remoteClientService = null;
             }
 
 

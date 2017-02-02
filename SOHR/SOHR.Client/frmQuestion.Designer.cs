@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuestion));
             this.tbxQuestion = new System.Windows.Forms.TextBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -37,16 +38,18 @@
             // 
             // tbxQuestion
             // 
-            this.tbxQuestion.Location = new System.Drawing.Point(13, 13);
+            this.tbxQuestion.Location = new System.Drawing.Point(17, 16);
+            this.tbxQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxQuestion.Name = "tbxQuestion";
-            this.tbxQuestion.Size = new System.Drawing.Size(532, 20);
+            this.tbxQuestion.Size = new System.Drawing.Size(708, 22);
             this.tbxQuestion.TabIndex = 0;
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(569, 40);
+            this.btnOK.Location = new System.Drawing.Point(759, 49);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(100, 28);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -55,9 +58,10 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(569, 69);
+            this.btnCancel.Location = new System.Drawing.Point(759, 85);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Abbrechen";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -65,20 +69,23 @@
             // dgvAnswers
             // 
             this.dgvAnswers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAnswers.Location = new System.Drawing.Point(13, 40);
+            this.dgvAnswers.Location = new System.Drawing.Point(17, 49);
+            this.dgvAnswers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAnswers.Name = "dgvAnswers";
-            this.dgvAnswers.Size = new System.Drawing.Size(532, 284);
+            this.dgvAnswers.Size = new System.Drawing.Size(709, 350);
             this.dgvAnswers.TabIndex = 3;
             // 
             // frmQuestion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 336);
+            this.ClientSize = new System.Drawing.Size(893, 414);
             this.Controls.Add(this.dgvAnswers);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.tbxQuestion);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmQuestion";
             this.Text = "Frage";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnswers)).EndInit();

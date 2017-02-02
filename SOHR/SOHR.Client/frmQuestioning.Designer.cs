@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuestioning));
             this.tbxQuestion = new System.Windows.Forms.TextBox();
             this.dgvAnswers = new System.Windows.Forms.DataGridView();
             this.btnAnswer = new System.Windows.Forms.Button();
@@ -36,27 +37,30 @@
             // 
             // tbxQuestion
             // 
-            this.tbxQuestion.Location = new System.Drawing.Point(12, 12);
+            this.tbxQuestion.Location = new System.Drawing.Point(16, 15);
+            this.tbxQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxQuestion.Name = "tbxQuestion";
             this.tbxQuestion.ReadOnly = true;
-            this.tbxQuestion.Size = new System.Drawing.Size(652, 20);
+            this.tbxQuestion.Size = new System.Drawing.Size(868, 22);
             this.tbxQuestion.TabIndex = 0;
             // 
             // dgvAnswers
             // 
             this.dgvAnswers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAnswers.Location = new System.Drawing.Point(12, 38);
+            this.dgvAnswers.Location = new System.Drawing.Point(16, 47);
+            this.dgvAnswers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAnswers.MultiSelect = false;
             this.dgvAnswers.Name = "dgvAnswers";
             this.dgvAnswers.ReadOnly = true;
-            this.dgvAnswers.Size = new System.Drawing.Size(652, 241);
+            this.dgvAnswers.Size = new System.Drawing.Size(869, 297);
             this.dgvAnswers.TabIndex = 1;
             // 
             // btnAnswer
             // 
-            this.btnAnswer.Location = new System.Drawing.Point(542, 285);
+            this.btnAnswer.Location = new System.Drawing.Point(723, 351);
+            this.btnAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAnswer.Name = "btnAnswer";
-            this.btnAnswer.Size = new System.Drawing.Size(122, 23);
+            this.btnAnswer.Size = new System.Drawing.Size(163, 28);
             this.btnAnswer.TabIndex = 2;
             this.btnAnswer.Text = "Anwort wählen";
             this.btnAnswer.UseVisualStyleBackColor = true;
@@ -64,12 +68,14 @@
             // 
             // frmQuestioning
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 320);
+            this.ClientSize = new System.Drawing.Size(901, 394);
             this.Controls.Add(this.btnAnswer);
             this.Controls.Add(this.dgvAnswers);
             this.Controls.Add(this.tbxQuestion);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmQuestioning";
             this.Text = "Befragung";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnswers)).EndInit();

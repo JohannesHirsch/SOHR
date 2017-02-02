@@ -26,6 +26,10 @@ namespace SOHR.Client
         public frmQuestioning(RuleSet set)
         {
             InitializeComponent();
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             RuleSet = set;
             InitForm();
         }

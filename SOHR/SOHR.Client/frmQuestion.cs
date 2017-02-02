@@ -26,7 +26,10 @@ namespace SOHR.Client
         public frmQuestion(Question question)
         {
             InitializeComponent();
-
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             Question = question;
             tbxQuestion.Text = question.Name;
 
@@ -36,7 +39,10 @@ namespace SOHR.Client
         public frmQuestion()
         {
             InitializeComponent();
-
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             Question = new Question();
 
             InitDataGridViews();

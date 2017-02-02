@@ -36,7 +36,7 @@ namespace SOHR.Server
             setHeaders = new ObservableCollection<Header>();
             setFiles = new ObservableCollection<File>();
             Path = @"RuleSets";
-            LoadFiles();
+            //LoadFiles();
         }
         #endregion // CONSTRUCTOR
 
@@ -79,6 +79,12 @@ namespace SOHR.Server
 
         void LoadFiles()
         {
+            if (!Directory.Exists(Path))
+            {
+                DirectoryInfo di = Directory.CreateDirectory(Path);
+            }
+
+
             Files.Clear();
             IEnumerable<string> files = Directory.GetFiles(Path).ToList();
             files = files.Where(f => f.Contains(".csv"));
@@ -97,66 +103,74 @@ namespace SOHR.Server
 
             foreach (var file in files)
             {
-                streamReader = new StreamReader(file);
-                fileNew = new File() { Path = file };
-                setNew = new RuleSet();
-                streamReader.ReadLine(); // Achtung ...
-                streamReader.ReadLine(); //...
-                line = streamReader.ReadLine().Split(';'); //Name ...
-                setNew.Name = line[1];
-                line = streamReader.ReadLine().Split(';'); // ID ...
-                setNew.ID = new Guid(line[1]);
-                streamReader.ReadLine(); // Letzte Änderung ...
-                line = streamReader.ReadLine().Split(';'); // Kommentar: ...
-                setNew.Comment = line[1];
-                line = streamReader.ReadLine().Split(';'); // Fragen: ...
-                Int32.TryParse(line[1], out numberOfQuestions);
-                line = streamReader.ReadLine().Split(';'); // Mögliche Ergebnisse
-                Int32.TryParse(line[1], out numberOfResults);
-                streamReader.ReadLine(); // Min: ...
-                streamReader.ReadLine(); // Max: ...
-                streamReader.ReadLine(); //
-                streamReader.ReadLine(); // Fragen
-                for (int i = 0; i < numberOfQuestions; i++)
+                try
                 {
-                    line = streamReader.ReadLine().Split(';'); // Frage x, y Antwortmöglichkeiten
-                    Int32.TryParse(line[2], out numberOfAnswers);
-                    line = streamReader.ReadLine().Split(';');
-                    questionNew = new Question();
-                    questionNew.ID = new Guid(line[1]);
-                    questionNew.Name = streamReader.ReadLine();
-                    for (int j = 0; j < numberOfAnswers; j++)
+                    streamReader = new StreamReader(file);
+                    fileNew = new File() { Path = file };
+                    setNew = new RuleSet();
+                    streamReader.ReadLine(); // Achtung ...
+                    streamReader.ReadLine(); //...
+                    line = streamReader.ReadLine().Split(';'); //Name ...
+                    setNew.Name = line[1];
+                    line = streamReader.ReadLine().Split(';'); // ID ...
+                    setNew.ID = new Guid(line[1]);
+                    streamReader.ReadLine(); // Letzte Änderung ...
+                    line = streamReader.ReadLine().Split(';'); // Kommentar: ...
+                    setNew.Comment = line[1];
+                    line = streamReader.ReadLine().Split(';'); // Fragen: ...
+                    Int32.TryParse(line[1], out numberOfQuestions);
+                    line = streamReader.ReadLine().Split(';'); // Mögliche Ergebnisse
+                    Int32.TryParse(line[1], out numberOfResults);
+                    streamReader.ReadLine(); // Min: ...
+                    streamReader.ReadLine(); // Max: ...
+                    streamReader.ReadLine(); //
+                    streamReader.ReadLine(); // Fragen
+                    for (int i = 0; i < numberOfQuestions; i++)
                     {
-                        answerNew = new Answer();
+                        line = streamReader.ReadLine().Split(';'); // Frage x, y Antwortmöglichkeiten
+                        Int32.TryParse(line[2], out numberOfAnswers);
                         line = streamReader.ReadLine().Split(';');
-                        answerNew.Name = line[0];
-                        Int32.TryParse(line[1], out points);
-                        answerNew.Points = points;
-                        questionNew.PossibleAnswers.Add(answerNew);
+                        questionNew = new Question();
+                        questionNew.ID = new Guid(line[1]);
+                        questionNew.Name = streamReader.ReadLine();
+                        for (int j = 0; j < numberOfAnswers; j++)
+                        {
+                            answerNew = new Answer();
+                            line = streamReader.ReadLine().Split(';');
+                            answerNew.Name = line[0];
+                            Int32.TryParse(line[1], out points);
+                            answerNew.Points = points;
+                            questionNew.PossibleAnswers.Add(answerNew);
+                        }
+                        setNew.Questions.Add(questionNew);
+                        streamReader.ReadLine();
                     }
-                    setNew.Questions.Add(questionNew);
-                    streamReader.ReadLine();
+
+                    for (int k = 0; k < numberOfResults; k++)
+                    {
+                        streamReader.ReadLine();
+                        streamReader.ReadLine();
+                        resultNew = new Result();
+                        resultNew.Name = streamReader.ReadLine();
+                        line = streamReader.ReadLine().Split(';');
+                        Int32.TryParse(line[1], out points);
+                        resultNew.Min = points;
+                        line = streamReader.ReadLine().Split(';');
+                        Int32.TryParse(line[1], out points);
+                        resultNew.Max = points;
+                        setNew.PossibleResults.Add(resultNew);
+                    }
+                    streamReader.Close();
+                    fileNew.RuleSet = setNew;
+                    Files.Add(fileNew);
+                    Console.WriteLine("Regelsatz {0} geladen.", fileNew.RuleSet.Name);
+                    counter++;
                 }
-                
-                for (int k = 0; k < numberOfResults; k++)
+                catch (Exception)
                 {
-                    streamReader.ReadLine();
-                    streamReader.ReadLine();
-                    resultNew = new Result();
-                    resultNew.Name = streamReader.ReadLine();
-                    line = streamReader.ReadLine().Split(';');
-                    Int32.TryParse(line[1], out points);
-                    resultNew.Min = points;
-                    line = streamReader.ReadLine().Split(';');
-                    Int32.TryParse(line[1], out points);
-                    resultNew.Max = points;
-                    setNew.PossibleResults.Add(resultNew);
+                        Console.WriteLine("Regelsatz {0} nicht geladen, Datei beschädigt!", file);
                 }
-                streamReader.Close();
-                fileNew.RuleSet = setNew;
-                Files.Add(fileNew);
-                Console.WriteLine("Regelsatz {0} geladen.", fileNew.RuleSet.Name);
-                counter++;
+
             }
             Console.WriteLine("{0} Regelsätze geladen.", counter);
         }
