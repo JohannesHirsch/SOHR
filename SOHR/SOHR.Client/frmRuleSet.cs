@@ -197,6 +197,11 @@ namespace SOHR.Client
                         {
                             MessageBox.Show("Name enthält ungültige Zeichen");
                             allValid = false;
+                            break;
+                        }
+                        if (!allValid)
+                        {
+                            break;
                         }
                     }
                     

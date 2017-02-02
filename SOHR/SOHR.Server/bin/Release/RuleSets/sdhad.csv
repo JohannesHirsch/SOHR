@@ -1,13 +1,13 @@
 Achtung;Dies ist eine automatisch generierte Datei. Manuelle Änderungen können zu einem Fehlverhalten führen.
 
-Name;sdhadh
+Name;sdhad
 ID;1b580e44-ff14-4316-be6a-dd314fd06934
-Letzte Änderung;24.01.2017 14:20:54
+Letzte Änderung;02.02.2017 14:57:43
 Kommentar;
-Fragen;1
+Fragen;2
 Mögliche Ergebnisse;2
 Min;0
-Max;110
+Max;114
 
 Fragen
 Frage 1;Antwortmöglichkeiten;2
@@ -16,14 +16,20 @@ f1
 a1;10
 a1;100
 
+Frage 2;Antwortmöglichkeiten;2
+ID;b970085d-bf25-4dae-8c1f-d35eeeff44c8
+hzfj
+hh;4
+gg;0
+
 Ergebnisse
 Ergebnis;1
 e1
-Min;-10
+Min;0
 Max;10
 
 Ergebnis;2
 e2
-Min;10
-Max;20
+Min;11
+Max;114
 
