@@ -12,3 +12,17 @@ C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.Properties.Resources.res
 C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.csproj.GenerateResource.Cache
 C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.exe
 C:\GitHub\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.pdb
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\bin\Release\SOHR.Client.exe.config
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.exe
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.pdb
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\bin\Release\SOHR.Client.exe
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\bin\Release\SOHR.Client.pdb
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\bin\Release\SOHR.Shared.dll
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\bin\Release\SOHR.Shared.pdb
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.csprojResolveAssemblyReference.cache
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.frmMain.resources
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.frmQuestion.resources
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.frmQuestioning.resources
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.frmRuleSet.resources
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.Properties.Resources.resources
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Client\obj\Release\SOHR.Client.csproj.GenerateResource.Cache

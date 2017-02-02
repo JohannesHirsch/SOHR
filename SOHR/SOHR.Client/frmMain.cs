@@ -60,7 +60,7 @@ namespace SOHR.Client
 
                 UpdateHeaders();
             }
-            catch (Exception)
+            catch (EndpointNotFoundException)
             {
 
                 MessageBox.Show("Fragensatz konnte nicht geladen werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
@@ -81,7 +81,7 @@ namespace SOHR.Client
                 frmQuestioning frmquestioning = new frmQuestioning(set);
                 frmquestioning.ShowDialog();
             }
-            catch (Exception)
+            catch (EndpointNotFoundException)
             {
 
                 MessageBox.Show("Fragensatz konnte nicht geladen werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
@@ -101,7 +101,7 @@ namespace SOHR.Client
                 }
                 UpdateHeaders();
             }
-            catch (Exception ex)
+            catch (EndpointNotFoundException)
             {
 
                 MessageBox.Show("Fragensatz konnte nicht gespeichert werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
@@ -118,7 +118,7 @@ namespace SOHR.Client
                 remoteClientService.DeleteRuleSet(set.ID);
                 UpdateHeaders();
             }
-            catch (Exception ex)
+            catch (EndpointNotFoundException)
             {
 
                 MessageBox.Show("Fragensatz konnte nicht gelöscht werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
@@ -144,15 +144,15 @@ namespace SOHR.Client
                 {
                     cbxHeaders.SelectedIndex = 0;
                 }
-            }
-            catch (Exception ex)
+        }
+            catch (EndpointNotFoundException)
             {
 
                 MessageBox.Show("Header konnten nicht geladen werden.\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
             }
 
-            
-        }
+
+}
 
         private void cbxHeaders_TextChanged(object sender, EventArgs e)
         {
