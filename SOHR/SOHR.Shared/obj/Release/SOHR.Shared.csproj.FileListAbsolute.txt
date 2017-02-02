@@ -7,3 +7,4 @@ C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Shared\bin\Release\SOHR.Share
 C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Shared\bin\Release\SOHR.Shared.pdb
 C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Shared\obj\Release\SOHR.Shared.dll
 C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Shared\obj\Release\SOHR.Shared.pdb
+C:\Users\Hofer\Documents\GitHub\SWA\SOHR\SOHR\SOHR.Shared\obj\Release\SOHR.Shared.csprojResolveAssemblyReference.cache
