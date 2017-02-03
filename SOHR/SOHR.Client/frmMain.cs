@@ -49,6 +49,7 @@ namespace SOHR.Client
             {
                 ChannelFactory<IClientService> channelFactory = new ChannelFactory<IClientService>("WSHttpBinding_IClientService");
                 remoteClientService = channelFactory.CreateChannel();
+                
             }
             catch (Exception ex)
             {
@@ -58,29 +59,47 @@ namespace SOHR.Client
 
         private void btnEditRuleSet_Click(object sender, EventArgs e)
         {
-            try
+            if (cbxHeaders.Items.Count > 0)
             {
-                if (remoteClientService == null)
+                try
                 {
-                    CreateChannel();
-                }
-                var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
+                    if (remoteClientService == null)
+                    {
+                        CreateChannel();
+                    }
+                    var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
 
-                frmRuleSet frmRuleSetEdit = new frmRuleSet(set);                        
-                if(frmRuleSetEdit.ShowDialog() == DialogResult.OK)
+                    if (set != null)
+                    {
+                        frmRuleSet frmRuleSetEdit = new frmRuleSet(set);
+                        if (frmRuleSetEdit.ShowDialog() == DialogResult.OK)
+                        {
+                            remoteClientService.SaveRuleSet(frmRuleSetEdit.RuleSet);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fragensatz ist nicht mehr vorhanden\n" + Environment.NewLine + "Eventuell wurde er von einem anderen Benutzer gelöscht!");
+                    }
+
+
+
+                    UpdateHeaders();
+                }
+                catch (EndpointNotFoundException)
                 {
-                    remoteClientService.SaveRuleSet(frmRuleSetEdit.RuleSet);
+
+                    MessageBox.Show("Fragensatz konnte nicht geladen werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
+                    remoteClientService = null;
                 }
+                catch (System.ServiceModel.Security.MessageSecurityException)
+                {
 
-                UpdateHeaders();
+                    MessageBox.Show("Es konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Versuchen Sie es erneut!");
+                    remoteClientService = null;
+                }
             }
-            catch (EndpointNotFoundException)
-            {
-
-                MessageBox.Show("Fragensatz konnte nicht geladen werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
-                remoteClientService = null;
-            }
-}
+        }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -89,23 +108,40 @@ namespace SOHR.Client
 
         private void btnStartQuestioning_Click(object sender, EventArgs e)
         {
-            try
+            if (cbxHeaders.Items.Count > 0)
             {
-                if (remoteClientService == null)
+                try
                 {
-                    CreateChannel();
+                    if (remoteClientService == null)
+                    {
+                        CreateChannel();
+                    }
+                    var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
+                    if (set != null)
+                    {
+                        frmQuestioning frmquestioning = new frmQuestioning(set);
+                        frmquestioning.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fragensatz ist nicht mehr vorhanden\n" + Environment.NewLine + "Eventuell wurde er von einem anderen Benutzer gelöscht!");
+                        UpdateHeaders();
+                    }
+
                 }
-                var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
-                frmQuestioning frmquestioning = new frmQuestioning(set);
-                frmquestioning.ShowDialog();
-            }
-            catch (EndpointNotFoundException)
-            {
+                catch (EndpointNotFoundException)
+                {
 
-                MessageBox.Show("Fragensatz konnte nicht geladen werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
-                remoteClientService = null;
-            }
+                    MessageBox.Show("Fragensatz konnte nicht geladen werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
+                    remoteClientService = null;
+                }
+                catch (System.ServiceModel.Security.MessageSecurityException)
+                {
 
+                    MessageBox.Show("Es konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Versuchen Sie es erneut!");
+                    remoteClientService = null;
+                }
+            }
         }
 
         private void btnNewRuleSet_Click(object sender, EventArgs e)
@@ -129,39 +165,71 @@ namespace SOHR.Client
                 MessageBox.Show("Fragensatz konnte nicht gespeichert werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
                 remoteClientService = null;
             }
+            catch (System.ServiceModel.Security.MessageSecurityException)
+            {
+
+                MessageBox.Show("Es konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Versuchen Sie es erneut!");
+                remoteClientService = null;
+            }
 
         }
 
         private void btnDeleteRuleSet_Click(object sender, EventArgs e)
         {
-            try
+            if (cbxHeaders.Items.Count > 0)
             {
-                if (remoteClientService == null)
+                try
                 {
-                    CreateChannel();
+                    if (remoteClientService == null)
+                    {
+                        CreateChannel();
+                    }
+                    var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
+
+                    if (set != null)
+                    {
+                        remoteClientService.DeleteRuleSet(set.ID);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fragensatz ist nicht mehr vorhanden\n" + Environment.NewLine + "Eventuell wurde er von einem anderen Benutzer gelöscht!");
+                    }
+
+                    UpdateHeaders();
                 }
-                var set = remoteClientService.LoadRuleSet((cbxHeaders.SelectedItem as Header).ID);
-                remoteClientService.DeleteRuleSet(set.ID);
-                UpdateHeaders();
+                catch (EndpointNotFoundException)
+                {
+
+                    MessageBox.Show("Es konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
+                    remoteClientService = null;
+                }
+                catch (System.ServiceModel.Security.MessageSecurityException)
+                {
+
+                    MessageBox.Show("Es konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Versuchen Sie es erneut!");
+                    remoteClientService = null;
+                }
+                catch (System.ServiceModel.CommunicationObjectFaultedException)
+                {
+
+                    MessageBox.Show("Fragensatz ist nicht mehr vorhanden\n" + Environment.NewLine + "Eventuell wurde er von einem anderen Benutzer gelöscht!");
+                    UpdateHeaders();
+                    
+                }
+
             }
-            catch (EndpointNotFoundException)
-            {
 
-                MessageBox.Show("Fragensatz konnte nicht gelöscht werden\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
-                remoteClientService = null;
-            }
-
-
-            
         }
 
         private void UpdateHeaders()
         {
             try
             {
+                
                 if (remoteClientService == null)
                 {
                     CreateChannel();
+                    
                 }
                 var headers = remoteClientService.LoadRuleSetHeaders();
 
@@ -173,6 +241,19 @@ namespace SOHR.Client
                 if (cbxHeaders.Items.Count > 0)
                 {
                     cbxHeaders.SelectedIndex = 0;
+                    cbxHeaders.Enabled = true;
+                    btnDeleteRuleSet.Enabled = true;
+                    btnEditRuleSet.Enabled = true;
+                    btnStartQuestioning.Enabled = true;
+                }
+                else
+                {
+                    cbxHeaders.SelectedText = "";
+                    cbxHeaders.Text = "";
+                    cbxHeaders.Enabled = false;
+                    btnDeleteRuleSet.Enabled = false;
+                    btnEditRuleSet.Enabled = false;
+                    btnStartQuestioning.Enabled = false;
                 }
         }
             catch (EndpointNotFoundException)
@@ -181,9 +262,15 @@ namespace SOHR.Client
                 MessageBox.Show("Header konnten nicht geladen werden.\nEs konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Eventuell ist Server offline");
                 remoteClientService = null;
             }
+            catch (System.ServiceModel.Security.MessageSecurityException)
+            {
+
+                MessageBox.Show("Es konnte keine Verbindung mit dem Server hergestellt werden\n" + Environment.NewLine + "Versuchen Sie es erneut!");
+                remoteClientService = null;               
+            }
 
 
-}
+        }
 
         private void cbxHeaders_TextChanged(object sender, EventArgs e)
         {

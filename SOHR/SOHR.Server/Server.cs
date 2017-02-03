@@ -196,9 +196,17 @@ namespace SOHR.Server
 
         public RuleSet LoadRuleSet(Guid ID)
         {
-            var set = Files.Where(f => f.RuleSet.ID == ID).First().RuleSet;
-            Console.WriteLine("Satz {0} an Client übergeben.", set.Name);
-            return set;
+            try
+            {
+                var set = Files.Where(f => f.RuleSet.ID == ID).First().RuleSet;
+                Console.WriteLine("Satz {0} an Client übergeben.", set.Name);
+                return set;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
         }
 
 

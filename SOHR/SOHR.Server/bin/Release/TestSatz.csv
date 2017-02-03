@@ -1,0 +1,35 @@
+Achtung;Dies ist eine automatisch generierte Datei. Manuelle Änderungen können zu einem Fehlverhalten führen.
+
+Name;TestSatz
+ID;41db2b7e-b5f6-4730-8701-cb32e1b42100
+Letzte Änderung;27.01.2017 08:48:27
+Kommentar;Sinnloser Testsatz
+Fragen;2
+Mögliche Ergebnisse;2
+Min;0
+Max;120
+
+Fragen
+Frage 1;Antwortmöglichkeiten;2
+ID;476f2ebd-9f73-4c6c-8c35-cb655b0de873
+Was sind die zentralen Eigenschaften einer guten F�hrungskraft?
+zuverl�ssig;20
+nett;15
+
+Frage 2;Antwortmöglichkeiten;2
+ID;4a49ac30-2d33-44ba-9851-05b257cf4319
+Was ist besser: Sollte ein Chef geliebt oder gef�rchtet werden?
+geliebt;100
+gef�rchtet;0
+
+Ergebnisse
+Ergebnis;1
+Schlecht
+Min;0
+Max;50
+
+Ergebnis;2
+Gut
+Min;51
+Max;120
+
